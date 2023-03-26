@@ -1,0 +1,49 @@
+/**
+  Where to define SCSS variables
+  These variables are used in
+    => global.scss for define global scss class
+    => any page you want to use these variabels
+**/
+$bg-button:(
+  "bg-main":#45cacd,
+  "bg-close":"#AFB0B1",
+  "bg-warning":"#f67d91"
+);
+$bg-container:(
+  "bg-main":#f2ece1,
+  "bg-white":white,
+);
+$bg-colors: (
+  "bg-gray-2": #4F4F4F,
+  "bg-gray-3": #828282,
+  "bg-gray-4": #BDBDBD,
+  "bg-gray-5": #E0E0E0,
+  "bg-gray-6": #F2F2F2,
+  "bg-gray-7": #6C757E,
+  "bg-white": white,
+  "bg-orange": #F7931A,
+  "bg-red": #F75F5A,
+  "bg-purple": #685bb8,
+  "bg-blue": #3498DB,
+  "bg-blue-2": #21325B
+);
+
+$text-colors: (
+  "text-white": #ffffff,
+  "text-black": #000000,
+  "text-gray-1": #333333,
+  "text-gray-3": #828282,
+  "text-gray-4": #BDBDBD,
+  "text-orange": #F7931A,
+  "text-red": #E93324,
+  "text-red-2": #F75F5A,
+  "text-yellow": #E7B008,
+  "text-grey": #6C757E,
+  "text-blue": #3498DB
+);
+
+$border-colors: (
+  "main": #E0E0E0,
+  "border-gray-6": #F2F2F2
+);
+

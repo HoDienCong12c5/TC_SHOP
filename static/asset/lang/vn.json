@@ -1,0 +1,73 @@
+{
+  "common":{
+    "login":"Đăng nhập",
+    "close":"Thoát",
+    "Send":"Gửi",
+    "buy":"Mua",
+    "buyNow":"Mua ngay",
+    "addCart":"Thêm vào giỏ hàng"
+  },
+  "textPopular":{
+    "address":"Địa chỉ",
+    "hash":"Hash",
+    "time":"time",
+    "logOut":"Log out",
+    "tokenId":"Token ID",
+    "nameChain":"Chain",
+    "description":"Thông tin",
+    "amount":"Amount",
+    "freeShip":"Free ship ",
+    "freeShip_des":"Free ship in since 15km"
+  },
+  "mintNFT":{
+    "addNewImg":"Add new image",
+    "mintNFT":"Mint NFT",
+    "coursers":"Coursers",
+    "student":"Student"
+  },
+  "myProfile":{
+    "myProfile":"Trang cá nhân"
+  },
+  "header":{
+    "coffee":"Coffee Shop",
+    "pod":"Pod Shop",
+    "cart":"Giỏ hàng",
+    "myProfile":"Trang cá nhân",
+    "contact":"Liên hệ",
+    "about":"Thông tin"
+  },
+  "footer":{
+    "aboutContact":"Thông tin liên hệ"
+  },
+  "coffeeDetail":{
+    "numberLike":"Lượt thích",
+    "price":"Giá",
+    "weight":"Cân nặng",
+    "sold":"Đã bán",
+    "totalNumber":"Tổng số lượng bán"
+  },
+  "confirm":{
+    "mintNFT":{
+      "confirm":"Confirm mint NFT",
+      "confirm_des":"Waiting confirm your transaction",
+      "start":"Your transaction has started",
+      "start_des":"Waiting success your transaction",
+      "success":"Your transaction success",
+      "success_des":"Your transaction success. You can view transaction in scan"
+    }
+  },
+  "errors": {
+    "notEnoughGas": "Not enough gas fee",
+    "deniedTransaction": "Error: User denied process",
+    "somethingWrong": "Something went wrong with your transaction. Please wait a minute and try again.",
+    "insufficientBalance": "Insufficient balance",
+    "invalidAddress": "Invalid ID (42 characters start with 0x)",
+    "numberMustGreaterThanZero": "The number must be greater than zero!",
+    "numberMustGreaterThan": "The number must be greater than [number]!",
+    "noLogin": "Are you sure you want to proceed?",
+    "txtNoLogin": "register (Sign in)",
+    "notAllowed": "You are not allowed to create NFT",
+    "pageNotFound": "PAGE NOT FOUND",
+    "changeRpc": "Error Contract or Back-end, front-end"
+  }
+}

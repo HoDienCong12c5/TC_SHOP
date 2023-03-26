@@ -1,0 +1,14 @@
+.img-logo-banner{
+  border-radius: 50% !important;
+  max-height: calc(100vh - 60px) !important;
+  @media screen and (max-width: 1499px) {
+    max-height:calc(70vh - 60px) !important;
+  }
+  @media screen and (max-width: 1099px) {
+    max-height:calc(60vh - 60px) !important;
+  }
+  @media screen and (max-width: 768px) {
+    max-height:calc(50vh - 60px) !important;
+  }
+}
+
