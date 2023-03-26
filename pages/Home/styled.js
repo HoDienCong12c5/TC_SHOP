@@ -1,4 +1,5 @@
 import ButtonBasic from '@/Components/ButtonBasic';
+import ImageLazy from '@/Components/ImageLazy';
 import styled from 'styled-components';
 
 export const ContainerHome = styled.div`
@@ -83,6 +84,13 @@ export const ItemMenu = styled(ButtonBasic)`
   &:hover {
     cursor: pointer;
   }
+`;
+///---------------------new
+export const Banner = styled.div`
+  
+`;
+export const ImgBanner = styled(ImageLazy)`
+  width: 100%;
 `;
 
 export default () => { };

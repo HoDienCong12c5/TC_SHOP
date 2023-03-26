@@ -46,5 +46,7 @@ const LandingPage = () => {
     </ContainerLP>
   )
 }
-
+LandingPage.getInitialProps = ({query}) => {
+  return { }
+}
 export default LandingPage

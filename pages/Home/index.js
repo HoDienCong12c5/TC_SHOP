@@ -6,6 +6,8 @@ import Loading from '@/Components/Loading'
 import { ContainerHome, ContainerListNFTHome, ContentHome, ItemMenu, LeftHome, RightHome } from './styled';
 import SEO from '@/pages/Container/Header/seo';
 import useGetAllNFT from '@/Hook/useGetAllNFT';
+import BannerHome from './Component/Banner';
+import InfoHome from './Component/Info';
 // import jwt_decode from 'jwt-decode';
 var jwt = require('jsonwebtoken');
 const menuHome = [
@@ -34,13 +36,7 @@ const HomeScreen = () => {
   const {listAllNFT} = useGetAllNFT()
 
   const [itemSelected, setItemSelected] = useState('qa_qc')
-  useEffect(() => {
-    var token = jwt.sign({ foo: 'bar' },'sw');
-    console.log('====================================');
-    console.log({token});
-    console.log('====================================');
 
-  }, [])
   const onClickItemMenu = (key) => {
     setItemSelected(key)
     switch (key) {
@@ -55,44 +51,7 @@ const HomeScreen = () => {
   const renderDesktop = () => {
     return (
       <ContentHome>
-        <LeftHome >
-          <ul></ul>
-          {
-            menuHome.map((item, index) => {
-              return (
-                <ItemMenu
-                  key={item}
-                  nft={item}
-                  onClick={() => onClickItemMenu(item.key)}
-                  className={'hover hover__zoom'}
-                  selected={itemSelected === item.key}
-                >
-                  {item?.title}
-                </ItemMenu>
-              )
-            })
-          }
-        </LeftHome>
-        <RightHome >
-          <ContainerListNFTHome>
-            {
-              listAllNFT?.length > 0 ? (
-                listAllNFT.map((item) => {
-                  return (
-                    <ItemNFT key={item}
-                      nft={item}
-                      onClick={() => {
-                        router.push(`/nft-detail/${item?.hash}`)
-                      }}
-                    />
-                  )
-                })
-              ) : (
-                <Loading />
-              )
-            }
-          </ContainerListNFTHome>
-        </RightHome>
+        <BannerHome />
       </ContentHome>
     )
   }
@@ -121,6 +80,8 @@ const HomeScreen = () => {
   return (
     <ContainerHome>
       <SEO />
+      <BannerHome />
+      <InfoHome />
       <Media query='(min-width: 768px)'>
         {(match) => {
           if (match) {
