@@ -4,6 +4,7 @@
     "close":"Thoát",
     "Send":"Gửi",
     "buy":"Mua",
+    "submit":"Xác nhận",
     "buyNow":"Mua ngay",
     "addCart":"Thêm vào giỏ hàng"
   },
@@ -15,8 +16,10 @@
     "tokenId":"Token ID",
     "nameChain":"Chain",
     "description":"Thông tin",
-    "amount":"Amount",
+    "amount":"Số lượng",
     "freeShip":"Free ship ",
+    "nameProduct":"Tên",
+    "totalMoney":"Tổng tiền",
     "freeShip_des":"Free ship in since 15km"
   },
   "mintNFT":{
@@ -44,7 +47,22 @@
     "price":"Giá",
     "weight":"Cân nặng",
     "sold":"Đã bán",
-    "totalNumber":"Tổng số lượng bán"
+    "totalNumber":"Tổng số lượng bán",
+    "modalBuy":{
+      "titleOder":"Lập hóa đơn",
+      "enterName":"Nhập họ và tên",
+      "enterNumberPhone":"Nhập số điện thoại",
+      "enterLinkFace":"Nhập link facebook của bạn (không bắt buộc)",
+      "enterGmail":"Nhập gmail (không bắt buộc)",
+      "enterAddress":"Nhập địa chỉ nhà (shipper ship hàng)"
+    }
+   
+  },
+  "warning":{
+    "errorUserName":"Tên không được để trống",
+    "errorSDT":"Số điện thoại chưa đúng địnd dạng",
+    "errorAddress":"Địa chỉ bắt buộc phải có"
+
   },
   "confirm":{
     "mintNFT":{

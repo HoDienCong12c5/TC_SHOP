@@ -10,6 +10,7 @@ import ReduxService from '@/Utils/ReduxService'
 import Web3Service from '@/Utils/web3'
 import { DownOutlined } from '@ant-design/icons'
 import { Col, Dropdown, Row, Space } from 'antd'
+import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
@@ -84,9 +85,11 @@ const Header = () => {
       <Row justify={'center'} align={'middle'} style={{height:'100%'}}>
         <Col span={4} style={{ textAlign: 'start' }}>
           <Link href={'/'}>
-            <img
+            <Image
               src={'https://skywalker.infura-ipfs.io/ipfs/QmfSbEq4qrQn53YydFj59Saiz9issKWFuxEJS4hDTCnNzh'}
-              style={{height:50}}
+              width={50}
+              height={50}
+              alt="TC Shop"
             />
           </Link>
         </Col>
@@ -163,5 +166,9 @@ const Header = () => {
     </ContainerHeader>
   )
 }
-
+Header.getStaticProps = (context)=> {
+  return {
+    props: {}, // will be passed to the page component as props
+  }
+}
 export default Header

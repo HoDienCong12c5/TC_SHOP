@@ -8,7 +8,7 @@ const localeEN = {
   messages: MessageEN
 }
 const localeVN = {
-  lang: 'vn',
+  lang: 'vi',
   messages: MessageVN
 }
 

@@ -13,7 +13,7 @@ const BannerHome = () => {
     <Zoom scale={1.4} indicators={true}>
       {images.map((each, index) => (
         <div key={index} style={{ width: '100%' }}>
-          <img style={{ objectFit: 'cover', width: '100%' }} alt="Slide Image" src={each} />
+          <img style={{ objectFit: 'cover', width: '100%', maxHeight:500 }} alt="Slide Image" src={each} />
         </div>
       ))}
     </Zoom>

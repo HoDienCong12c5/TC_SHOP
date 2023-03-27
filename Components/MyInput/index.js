@@ -2,15 +2,16 @@ import React from 'react'
 import { Input } from 'antd'
 import styled from 'styled-components'
 const { TextArea } = Input
-const InputBase = styled( Input )`
-  border-radius: 8px;
-  border: 1px solid  #2b5540 !important;
-  padding: ${( props ) => ( props.suffix ? '7px 10px;' : '10px 10px' )};
-  color: white !important;
+const InputBase = styled(Input)`
+  border-radius: 0px !important;
+  border: 0px  !important;
+  border-bottom: 1px solid  #2b5540 !important;
+  padding: ${(props) => (props.suffix ? '7px 10px;' : '10px 10px')};
+  color: black !important;
   &focus-visible,
   &:hover ,
   &:focus{
-    border: 1px solid black !important;
+    /* border: 1px solid black !important; */
   }
   &.ant-input-affix-wrapper {
     background-color: transparent !important;
@@ -19,7 +20,7 @@ const InputBase = styled( Input )`
   }
  
 `
-const InputTextArea = styled( TextArea )`
+const InputTextArea = styled(TextArea)`
   border-radius: 8px;
   &:focus,
   &:hover {
@@ -70,7 +71,7 @@ const InputTextArea = styled( TextArea )`
     }
   }
 `
-const InputPassword = styled( InputBase.Password )`
+const InputPassword = styled(InputBase.Password)`
 border-radius: 8px;
 border: 1px solid rgba(255, 255, 255, 0.6) !important;
 &:focus,
@@ -84,14 +85,14 @@ span.anticon.anticon-eye.ant-input-password-icon {
   color: white;
 }
 `
-export const MyInput = ( {
+export const MyInput = ({
   iconRender = null,
   iconLeft = null,
   iconRight = null,
   password = false,
   textArea = false,
   ...props
-} ) => {
+}) => {
   return (
     <>
       {

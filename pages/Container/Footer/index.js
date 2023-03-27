@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react'
-import Image from '@/Components/Image'
+import Image from '@/Components/ImageBasic'
 import Media from 'react-media'
 import ContainerFooter, {
   Left,

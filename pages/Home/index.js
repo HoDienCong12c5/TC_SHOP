@@ -51,7 +51,7 @@ const HomeScreen = () => {
   const renderDesktop = () => {
     return (
       <ContentHome>
-        <BannerHome />
+        {/* <BannerHome /> */}
       </ContentHome>
     )
   }

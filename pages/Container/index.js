@@ -15,7 +15,7 @@ const Container = ({ children }) => {
       <Content className='base-content' style={{ paddingTop: 10 }}>
         <Row type='flex' justify='center'>
           <Col span={24}>
-            <div className='base-container'>{children}</div>
+            <main className='base-container'>{children}</main>
           </Col>
         </Row>
       </Content>

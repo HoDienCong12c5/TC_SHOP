@@ -23,6 +23,7 @@ const nextConfig = {
   },
   experimental: {
     swcTraceProfiling: true,
+    optimizeCss: true
     // appDir: true
   },
   reactStrictMode: true,
@@ -37,10 +38,20 @@ const nextConfig = {
     return [
       {
         source: '/',
-        destination: '/Screen/Home'
+        destination: '/Home'
       }
     ]
-  }
+  },
+  images: {
+    // domains: ['https://skywalker.infura-ipfs.io']
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'skywalker.infura-ipfs.io',
+        pathname:'/ipfs/**'
+      },
+    ],
+  },
 }
 module.exports = withPlugins([
   [optimizedImages, {
@@ -49,18 +60,3 @@ module.exports = withPlugins([
   withAntdLess({modifyVars:{}}),
   withFonts
 ], nextConfig)
-
-
-module.exports = {
-  images: {
-    domains: ['https://skywalker.infura-ipfs.io']
-    // remotePatterns: [
-    //   {
-    //     protocol: 'https',
-    //     hostname: 'skywalker.infura-ipfs.io',
-    //     pathname:'ipfs'
-    //   },
-    // ],
-  },
-};
-module.exports = nextConfig

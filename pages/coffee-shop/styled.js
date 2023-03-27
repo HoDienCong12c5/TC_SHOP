@@ -1,5 +1,8 @@
 import ButtonBasic from '@/Components/ButtonBasic';
 import ImageLazy from '@/Components/ImageLazy';
+import ImageNext from '@/Components/ImageNext';
+import MyInput from '@/Components/MyInput';
+import { Form } from 'antd';
 import styled from 'styled-components';
 export const ContainerCoffeeShop = styled.div`
 `;
@@ -9,9 +12,14 @@ export const ContainerCoffeeDetail = styled.div`
  width: 100%;
  display: flex;
  gap:30px;
-
 `;
-export const TitleCoffee = styled.div`
+export const ContainerImgCoffeeDetail = styled.div`
+ flex :4;
+`;
+export const ContainerContentCoffeeDetail = styled.div`
+ flex :6;
+`;
+export const TitleCoffee = styled.h1`
   color: black;
   font-family: "Fast Hand";
   font-style: normal;
@@ -19,6 +27,7 @@ export const TitleCoffee = styled.div`
   font-size: 36px;
   letter-spacing: 0.05em;
   text-transform: uppercase;
+  margin: 0px;
   text-shadow: rgb(255 255 255 / 65%) 0px 0px 29.0909px;
 `;
 export const ButtonBuy = styled(ButtonBasic)`
@@ -28,7 +37,7 @@ export const ButtonBuy = styled(ButtonBasic)`
 export const ButtonEx = styled.div`
   height: 30px;
   width: 50px;
-  line-height: 30px;
+  line-height: 27px;
   font-weight: bold;
   background: white;
   color:black;
@@ -56,10 +65,23 @@ export const PriceCoffee = styled.div`
   font-size: 30px;
   line-break: 30px;
 `;
-export const ImgCoffeeDetail = styled(ImageLazy)`
-  max-width: 100%;
-  min-width: 500px;
-  max-height: 600px;
+export const ImgCoffeeDetail = styled(ImageNext)`
+  max-width: 500px;
+  min-width: 300px;
+  max-height: 500px !important;
 `;
+//------ modal buy coffee
+export const FormItem = styled(Form.Item)`
+.ant-form-item-row{
+  .ant-form-item-control{
+    width: 100% !important;
+    flex: none;
+    min-width: 100%; 
+  }
+}
+`;
+export const InputForm = styled(MyInput)`
+height: 35px;
+`
 
 export default () => {};

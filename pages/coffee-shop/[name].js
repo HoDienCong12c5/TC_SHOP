@@ -5,17 +5,21 @@ import { Col, Row } from 'antd'
 import React, { useEffect, useState } from 'react'
 import Media from 'react-media'
 import { useSelector } from 'react-redux';
-import { AmountCoffee, ButtonBuy, ButtonEx, ContainerCoffeeDetail, ImgCoffeeDetail, PriceCoffee, TitleCoffee } from './styled';
+import { AmountCoffee, ButtonBuy, ButtonEx, ContainerCoffeeDetail, ContainerContentCoffeeDetail, ContainerImgCoffeeDetail, ImgCoffeeDetail, PriceCoffee, TitleCoffee } from './styled';
 import Loading from '@/Components/Loading'
 import ButtonBasic from '@/Components/ButtonBasic';
 import { images } from '@/common/images';
 import BtnBack from '@/Components/BtnBack';
 import Image from 'next/image';
+import ImageNext from '@/Components/ImageNext';
+import { useWorkModal } from '@/Hook/useModal';
+import { modalConfig } from '@/common/constant';
+import ModalBuyCoffee from './Component/LeftMenu/ModalBuyCoffe';
+import ModalTx from '@/Components/ModalTx';
 
-const CoffeeDetail = ({
-  name
-}) => {
+const CoffeeDetail = ({name}) => {
   const message = useSelector(state => state.locale.messages)
+  const {showModal, hideModal} = useWorkModal()
 
   const [coffeeDetail, setCoffeeDetail] = useState(null);
   const [detailMore, setDetailMore] = useState(null);
@@ -34,6 +38,16 @@ const CoffeeDetail = ({
 
     }
   }, [amount,coffeeDetail]);
+
+  const buyCoffee = () => {
+    let styleModal = modalConfig
+    showModal({
+      body:<ModalBuyCoffee
+        coffee={coffeeDetail}
+      />,
+      modalConfig:styleModal
+    })
+  }
 
   const renderAmount = ()=>{
     const plusNumber = ()=>{
@@ -56,19 +70,20 @@ const CoffeeDetail = ({
     return (
       <>
         <ContainerCoffeeDetail>
-          <div style={{textAlign:'start'}}>
+          <ContainerImgCoffeeDetail style={{textAlign:'start'}}>
             <ImgCoffeeDetail
-              src={coffeeDetail?.image_main}
+              src={'https://skywalker.infura-ipfs.io/ipfs/QmUirr7dsqyZgA5bDx4TqumJKCkiDtWdLHmGmaiZ5uEr15'}
+              alt={stingToArr(name)}
             />
-            {/* <Image
+            {/* <ImageNext
               src={'https://skywalker.infura-ipfs.io/ipfs/QmUirr7dsqyZgA5bDx4TqumJKCkiDtWdLHmGmaiZ5uEr15'}
               alt="Picture of the author"
               width={500}
               height={500}
             /> */}
-          </div>
-          <div style={{textAlign:'start'}} className='w-full'>
-            <div className='col-basic gap-20 mt-20 w-full'>
+          </ContainerImgCoffeeDetail>
+          <ContainerContentCoffeeDetail style={{textAlign:'start'}} className='w-full'>
+            <div className='col-basic gap-15 mt-20 w-full'>
               <TitleCoffee >
                 {coffeeDetail.name}
               </TitleCoffee>
@@ -93,8 +108,8 @@ const CoffeeDetail = ({
               </PriceCoffee>
 
               <Row >
-                <Col span={15}>
-                  <ButtonBuy >
+                <Col span={10}>
+                  <ButtonBuy onClick={buyCoffee}>
                     {message.common.buyNow}
                   </ButtonBuy>
                 </Col>
@@ -123,7 +138,7 @@ const CoffeeDetail = ({
 
             </div>
 
-          </div>
+          </ContainerContentCoffeeDetail>
         </ContainerCoffeeDetail>
       </>
     )
@@ -154,8 +169,8 @@ const CoffeeDetail = ({
     </div>
   )
 }
-CoffeeDetail.getInitialProps = ({ query }) => {
-  const { name } = query
-  return { name }
+export const getServerSideProps = ({query}) => {
+  const {name} = query
+  return { props: {name} }
 }
 export default CoffeeDetail

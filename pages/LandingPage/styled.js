@@ -1,4 +1,4 @@
-import Img from '@/Components/Image';
+import Img from '@/Components/ImageBasic';
 import ButtonBasic from '@/Components/ButtonBasic';
 import { MediumText, NormalText } from '@/Components/TextSize';
 import { Col, Row } from 'antd';
