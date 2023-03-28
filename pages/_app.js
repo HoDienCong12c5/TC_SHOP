@@ -37,6 +37,7 @@ export default function App({ Component, pageProps }) {
       const storageRedux = [
         { key: KEY_PAGE.SET_METAMASK_INFO, action: PageReduxAction.setMetamask, init: initState.metamaskRedux },
         { key: KEY_PAGE.CONNECTION_METHOD, action: PageReduxAction.setConnectionMethod, init: initState.connectionMethod },
+        { key: KEY_PAGE.SET_USER_INFO, action: PageReduxAction.setUserInfo, init: initState.userInfo },
       ]
       const promiseArr = storageRedux.map((item) => {
         checkLocalStoreToRedux(store, item.key, item.action, item.init)

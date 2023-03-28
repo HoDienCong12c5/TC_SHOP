@@ -70,4 +70,10 @@ export const isSigned = createReducer(initState.isSign, {
     return action.payload
   }
 })
+export const userInfo = createReducer(initState.userInfo, {
+  [KEY_PAGE.SET_USER_INFO](state, action) {
+    return action.payload
+  }
+})
+
 

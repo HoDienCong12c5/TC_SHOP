@@ -126,8 +126,10 @@ const NFTDetail = ({ hash }) => {
     </div>
   )
 }
-NFTDetail.getInitialProps = ({ query }) => {
+NFTDetail.getServerSideProps = ({ query }) => {
   const { hash } = query
-  return { hash }
+  return {
+    props: {hash}, // will be passed to the page component as props
+  }
 }
 export default NFTDetail

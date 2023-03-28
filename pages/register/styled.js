@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 export const ContainerRegister = styled.div`  
-  max-width: 600px;
+  max-width: 500px;
   min-height: calc(100vh - 150px);
   background: white;
   border-radius: 14px;
@@ -10,6 +10,8 @@ export const ContainerRegister = styled.div`
   border-radius: 14px;
   display: flex;
   flex-direction: column;
+  margin:auto;
+  padding:25px;
 `
 
 export default ()=>{};

@@ -7,11 +7,13 @@ const ButtonBasic = ({
   isHover,
   onClick,
   disabled,
+  loading = false,
   className = null,
   ...props
 }) => {
   return (
     <Button
+      loading={loading}
       disabled={disabled}
       onClick={onClick}
       className={`${styles['second-btn']}  ${type === 1 && styles['second-btn']} ${isHover && styles['pri-btn-is-hover']} ${className}`}

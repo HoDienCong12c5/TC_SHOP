@@ -4,6 +4,7 @@ import { useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import ImageLazy from '../ImageLazy';
+import ImageNext from '../ImageNext';
 import { MediumText, NormalText, TitleText } from '../TextSize';
 const ContainerItem = styled.div`
     justify-content: center;
@@ -33,30 +34,39 @@ const PriceItem = styled(MediumText)`
    font-weight: bold;
    text-transform: uppercase;
 `
-
+export const ImgCoffeeDetail = styled(ImageNext)`
+  max-width: 100%;
+  max-height: auto;
+  max-height: 260px;
+`;
 const Item = ({
   item,
   onClick
 }) => {
   const messages = useSelector(state => state.locale.messages)
-
   return (
     <ContainerItem>
       <ContainerImg onClick={onClick}>
-        <ImageLazy
+        <ImgCoffeeDetail
+          src={detectImageUrl(item?.image_main)}
+          alt= {item.name}
+        />
+        {/* <ImageLazy
           src={detectImageUrl(item?.image_main)}
           alt={detectImageUrl(item?.image_main)}
-        />
+        /> */}
       </ContainerImg>
 
       <div style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: 3 }}>
         <MediumText textTransform>
           {item.name}
         </MediumText>
+        <MediumText >
+          {`${messages.coffeeDetail.sold}: ${item.sell}`}
+        </MediumText>
         <PriceItem className='mb-10'>
           {`${item.price}.000 VND`}
         </PriceItem>
-
       </div>
     </ContainerItem>
   )

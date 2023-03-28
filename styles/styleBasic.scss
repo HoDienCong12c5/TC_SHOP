@@ -260,3 +260,10 @@ input#ratio {
 .btn-close{
   background: transparent !important;
 }
+.ant-form-item-row{
+  .ant-form-item-control{
+    width: 100% !important;
+    flex: none;
+    min-width: 100%; 
+  }
+}

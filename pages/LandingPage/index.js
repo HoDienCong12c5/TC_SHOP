@@ -1,14 +1,13 @@
 import React from 'react'
-import Media from 'react-media'
-import { BtnBuyNow, ContainerBanner, ContainerBannerMobileLP, ContainerIntroDuce, ContainerLogo, ContainerLP, ContainerWave, DesBannerLP, DesContentIntroduce, IconIntroduce, ImgLogo, RowLPTop, SVGCustom, TitleBannerLP, TitleContentIntroduce } from './styled'
+import { ContainerLP, ContainerWave, SVGCustom } from './styled'
 import SEOLP from './Seo'
-import Img, { images } from '@/common/images'
-import { Col } from 'antd'
-import styles from './LP.module.scss'
 import BannerLP from './Components/Banner'
-import OtherProduct from './Components/OtherProduct'
+// import OtherProduct from './Components/OtherProduct'
 import { BG_BTN } from '@/common/constant'
-const LandingPage = () => {
+import dynamic from 'next/dynamic'
+const OtherProduct = dynamic(() => import('./Components/OtherProduct'))
+
+const LandingPage = (props) => {
 
   const renderDesktop = () => {
     return(
@@ -46,7 +45,9 @@ const LandingPage = () => {
     </ContainerLP>
   )
 }
-LandingPage.getInitialProps = ({query}) => {
-  return { }
+export const getStaticProps = () => {
+  return {
+    props: {}
+  }
 }
 export default LandingPage

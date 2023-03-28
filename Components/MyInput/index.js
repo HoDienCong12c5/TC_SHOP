@@ -1,35 +1,34 @@
-import React from 'react'
-import { Input } from 'antd'
-import styled from 'styled-components'
-const { TextArea } = Input
+import React from 'react';
+import { Input } from 'antd';
+import styled from 'styled-components';
+const { TextArea } = Input;
 const InputBase = styled(Input)`
   border-radius: 0px !important;
-  border: 0px  !important;
-  border-bottom: 1px solid  #2b5540 !important;
+  border: 0px !important;
+  border-bottom: 1px solid #2b5540 !important;
   padding: ${(props) => (props.suffix ? '7px 10px;' : '10px 10px')};
+  padding: 0px;
   color: black !important;
   &focus-visible,
-  &:hover ,
-  &:focus{
+  &:hover,
+  &:focus {
     /* border: 1px solid black !important; */
   }
   &.ant-input-affix-wrapper {
     background-color: transparent !important;
     border: 0px;
-    
   }
- 
-`
+`;
 const InputTextArea = styled(TextArea)`
   border-radius: 8px;
   &:focus,
   &:hover {
-    border: 1px solid white !important;
+    border: 1px solid black !important;
   }
   &.input {
     max-width: 100%;
     &.ant-input {
-      color: white !important;
+      color: black !important;
     }
   }
   .count {
@@ -70,21 +69,24 @@ const InputTextArea = styled(TextArea)`
       resize: none;
     }
   }
-`
+`;
 const InputPassword = styled(InputBase.Password)`
-border-radius: 8px;
-border: 1px solid rgba(255, 255, 255, 0.6) !important;
-&:focus,
-&:hover {
-  border: 1px solid white !important;
-}
-span.anticon.anticon-eye-invisible.ant-input-password-icon {
-  color: white;
-}
-span.anticon.anticon-eye.ant-input-password-icon {
-  color: white;
-}
-`
+  border-radius: 0px;
+  padding: 0px;
+  margin: 0px;
+  border: 0px !important;
+  border-bottom: 1px solid #2b5540 !important;
+  &:focus,
+  &:hover {
+    /* border: 1px solid black !important; */
+  }
+  span.anticon.anticon-eye-invisible.ant-input-password-icon {
+    color: black;
+  }
+  span.anticon.anticon-eye.ant-input-password-icon {
+    color: black;
+  }
+`;
 export const MyInput = ({
   iconRender = null,
   iconLeft = null,
@@ -95,31 +97,31 @@ export const MyInput = ({
 }) => {
   return (
     <>
-      {
-        textArea && <InputTextArea
+      {textArea && (
+        <InputTextArea
           iconRender={iconRender}
           suffix={iconRight}
           prefix={iconLeft}
           {...props}
         />
-      }
-      {
-        password && <InputPassword
-          iconRender={iconRender}
+      )}
+      {password && (
+        <InputPassword
+          // iconRender={iconRender}
           suffix={iconRight}
           prefix={iconLeft}
           {...props}
         />
-      }
-      {
-        !textArea && !password && <InputBase
+      )}
+      {!textArea && !password && (
+        <InputBase
           suffix={iconRight}
           iconRender={iconRender}
           prefix={iconLeft}
           {...props}
         />
-      }
+      )}
     </>
-  )
-}
-export default MyInput
+  );
+};
+export default MyInput;

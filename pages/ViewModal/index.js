@@ -10,8 +10,10 @@ const ViewModal = ({ url }) => {
     <div>ViewModal</div>
   )
 }
-ViewModal.getInitialProps = ({ query }) => {
+ViewModal.getStaticProps = ({ query }) => {
   const { url } = query
-  return { url }
+  return {
+    props: {url}, // will be passed to the page component as props
+  }
 }
 export default ViewModal

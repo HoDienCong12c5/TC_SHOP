@@ -99,6 +99,10 @@ const FirebaseFun = (nameData, path = '') => {
       let data = await getDoc(temp)
       return formatData(data)
     },
+    getDataByQuery:async(key,match,value)=>{
+      return getDataByQuery(nameData, key, value,match)
+
+    },
     getDataByAddress: async (address) => {
       return getDataByQuery(nameData, 'to', address.toLowerCase(), '==')
     },

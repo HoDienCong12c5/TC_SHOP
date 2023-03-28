@@ -64,7 +64,7 @@ const ModalBuyCoffee = ({
   }
 
   return (
-    <ConModalBuyCoffee>
+    <ConModalBuyCoffee>const
       <TitleModalBuyCoffee >
         {message.coffeeDetail.modalBuy.titleOder}
       </TitleModalBuyCoffee>

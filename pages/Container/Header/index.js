@@ -4,6 +4,7 @@ import ModalTx from '@/Components/ModalTx'
 import useCallBackReject from '@/Hook/useCallBackReject'
 import { useWorkModal } from '@/Hook/useModal'
 import useUserData from '@/Hook/useUserData'
+import userUserInfo from '@/Hook/useUserInfor'
 import Metamask from '@/Modal/Metamask'
 import { ellipsisAddress } from '@/Utils/function'
 import ReduxService from '@/Utils/ReduxService'
@@ -16,13 +17,23 @@ import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import Media from 'react-media'
 import { useSelector } from 'react-redux'
+import ModalLogin from './component/ModalLogin'
 import styles from './Header.module.scss'
 import { ContainerHeader } from './styled'
 const Header = () => {
   const router = useRouter()
-  const { isSigned, userAddress } = useUserData()
+  const {isSigned,name} = userUserInfo()
   const modal = useSelector(state => state.globalModal)
+  const {showModal} = useWorkModal()
+
   const message = useSelector(state => state.locale.messages)
+  useEffect(() => {
+    if(!isSigned){
+      if(PAGE_SIGN.includes(router.asPath)){
+        ReduxService.resetUser()
+      }
+    }
+  }, [router,isSigned])
   useEffect(() => {
     if(!isSigned){
       if(PAGE_SIGN.includes(router.asPath)){
@@ -32,20 +43,11 @@ const Header = () => {
   }, [router,isSigned])
 
   const connectMeta = async () => {
-    Metamask.initialize()
-  }
-  const handleMyProfile = () => {
-    router.push('/MyProfile')
-  }
-  const sendToken = () => {
-    router.push('/MyProfile')
-  }
-  const minNFT = () => {
-    if (isSigned) {
-      router.push('/MintNFT')
-    } else {
-      connectMeta()
-    }
+    // Metamask.initialize()
+    showModal({
+      body:<ModalLogin />,
+      modalConfig
+    })
   }
 
   const handleSignOut = async () => {
@@ -81,6 +83,12 @@ const Header = () => {
         route:'/about'
       }
     ]
+    if(!isSigned){
+      dataNav.push({
+        tile:message.register.title,
+        route:'/register'
+      })
+    }
     return (
       <Row justify={'center'} align={'middle'} style={{height:'100%'}}>
         <Col span={4} style={{ textAlign: 'start' }}>
@@ -109,7 +117,7 @@ const Header = () => {
             {
               isSigned && (
                 <ButtonBasic
-                  onClick={()=> router.push('/cart')}
+                  onClick={()=> router.push('/my-cart')}
                   className={styles['btn-item-menu']}
                 >
                   {message.header.cart}
@@ -130,7 +138,7 @@ const Header = () => {
               >
                 <ButtonBasic className={styles['bnt-login']} style={{ background: '#f5f5f5', borderRadius: 0, border: '1px solid; black' }}>
                   <Space>
-                    {ellipsisAddress(userAddress, 5, 4)}
+                    {name}
                     <DownOutlined />
                   </Space>
                 </ButtonBasic>

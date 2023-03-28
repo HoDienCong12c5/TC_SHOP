@@ -81,7 +81,7 @@ export const FormItem = styled(Form.Item)`
 }
 `;
 export const InputForm = styled(MyInput)`
-height: 35px;
+height: 30px;
 `
 
 export default () => {};

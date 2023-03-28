@@ -1,20 +1,126 @@
 import { TitleText } from '@/Components/TextSize'
-import { Form } from 'antd'
-import React from 'react'
+import { useWorkModal } from '@/Hook/useModal'
+import { Col, Form, Row,Checkbox } from 'antd'
+import React, { useMemo, useState } from 'react'
 import Media from 'react-media'
+import { useSelector } from 'react-redux'
 import { ContainerRegister } from './styled'
+import MyInput from '@/Components/MyInput'
+import { MediumText } from '@/Components/TextSize'
+import { FormItem, InputForm } from '@/pages/coffee-shop/styled'
+import ButtonBasic from '@/Components/ButtonBasic'
+import { useRouter } from 'next/router'
 
 const Register = () => {
+  const route = useRouter()
+  const {hideModal} = useWorkModal()
+  const [form] = Form.useForm()
+  const message = useSelector(state => state.locale.messages)
+
+  const [saveLogin, setSaveLogin] = useState(true)
+  const [formData, setFormData] = useState({
+    userName :'',
+    passWord:'',
+    passWordAgain:'',
+    numberPhone:''
+  });
+
+  const checkValidRegister = useMemo(() => {
+    for (const key in formData) {
+      if(formData[key] === '' || !formData[key]){
+        return false
+      }
+    }
+    return true
+  },[formData])
+  const checkUserName = (rule, userName) => {
+    if(!userName){
+      return Promise.reject(message.warning.errorUserName)
+    }
+  }
+  const checkNumberPhone = (rule, numberPhone) => {
+    if(!numberPhone){
+      return Promise.reject(message.warning.errorSDT)
+    }else{
+      if(numberPhone.length < 9 || numberPhone.length > 10){
+        return Promise.reject(message.warning.errorSDT)
+      }
+    }
+  }
+  const checkPWAgin = (rule, passWordAgain) => {
+    if(formData.passWord !== passWordAgain){
+      return Promise.reject(message.warning.inValidPassWordAgain)
+    }
+  }
+  const onRememberLogin = (e) => {
+    setSaveLogin(!saveLogin)
+  };
+  const submit = (params) => {
+
+  }
+
+
   return (
     <ContainerRegister>
-      <TitleText textTransform >
-      Register
+      <TitleText textTransform style={{margin:'auto'}}>
+        {message.register.title}
       </TitleText>
-      {/* <Form >
-        <Form.Item>
-          <
+      <Form
+        name="basicform"
+        form={form}
+        initialValues={formData}
+        style={{ width: '100%' }}
+        onValuesChange={(changedValues, allValue) => setFormData(allValue)}
+      >
+        <Form.Item
+          rules={[{validator:checkUserName}]}
+          name={'userName'}
+          label={message.coffeeDetail.modalBuy.enterName}
+        >
+          <InputForm
+            placeholder={message.coffeeDetail.modalBuy.enterName}
+          />
         </Form.Item>
-      </Form> */}
+        <Form.Item
+          rules={[{validator:checkNumberPhone}]}
+          name={'numberPhone'}
+          label={message.coffeeDetail.modalBuy.enterNumberPhone}
+        >
+          <InputForm placeholder={message.coffeeDetail.modalBuy.enterNumberPhone} />
+        </Form.Item>
+        <Form.Item
+          name={'passWord'}
+          label={message.register.enterPassWord}
+        >
+          <InputForm placeholder={message.register.enterPassWord} />
+        </Form.Item>
+        <Form.Item
+          rules={[{validator:checkPWAgin}]}
+          name={'passWordAgain'}
+          label={message.register.enterPassWordAgain}
+        >
+          <InputForm placeholder={message.register.enterPassWordAgain} />
+        </Form.Item>
+      </Form>
+      <Checkbox checked={saveLogin} onChange={onRememberLogin}>{message.register.saveRegister}</Checkbox>
+      <Row className={'mt-15'} >
+        <Col span={11}>
+          <ButtonBasic
+            disabled={!checkValidRegister}
+            className={'w-full'}
+            onClick={submit}
+          >
+            {message.common.submit}
+          </ButtonBasic>
+        </Col>
+        <Col span={11}offset={1}>
+          <ButtonBasic
+            className={'w-full btn-close'}
+            onClick={()=>route.push('/')} >
+            {message.common.close}
+          </ButtonBasic>
+        </Col>
+      </Row>
     </ContainerRegister>
   )
 }

@@ -54,4 +54,11 @@ export default class PageReduxAction {
       payload
     };
   }
+
+  static setUserInfo(payload) {
+    return {
+      type: KEY_PAGE.SET_USER_INFO,
+      payload
+    };
+  }
 }
