@@ -2,7 +2,7 @@ import ItemNFT from '@/Components/ItemNFT';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import Media from 'react-media';
-import Loading from '@/Components/Loading'
+import Loading from '@/Components/MyLoading'
 import { ContainerHome, ContainerListNFTHome, ContentHome, ItemMenu, LeftHome, RightHome } from './styled';
 import SEO from '@/pages/Container/Header/seo';
 import useGetAllNFT from '@/Hook/useGetAllNFT';

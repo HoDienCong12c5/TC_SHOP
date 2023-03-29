@@ -68,7 +68,9 @@
     "inValidPassWordAgain":"Mật khẩu không đúng",
     "errorUserName":"Tên không được để trống",
     "errorSDT":"Số điện thoại chưa đúng địnd dạng",
-    "errorAddress":"Địa chỉ bắt buộc phải có"
+    "errorAddress":"Địa chỉ bắt buộc phải có",
+    "unPayMent":"Húy thanh toán",
+    "unPayMent_des":"Nếu bản hủy sẽ không thanh toán đơn hàng này được !"
 
   },
   "confirm":{

@@ -57,7 +57,7 @@ const ModalLogin = () => {
     }
 
     return ()=>{setLoadingLogin(false)}
-  }, [isSigned,modal])
+  }, [isSigned])
   const handleLogin = async () => {
     let login = false
     setLoadingLogin(true)
@@ -67,9 +67,6 @@ const ModalLogin = () => {
     }else{
       login = await ReduxService.getUserInfo(formData.userName,formData.passWord)
     }
-    console.log('====================================');
-    console.log({login});
-    console.log('====================================');
     if(!login){
       hideModal()
       showNotification('user name hoặc password chưa đúng')

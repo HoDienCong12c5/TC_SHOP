@@ -6,7 +6,7 @@ import React, { useEffect, useState } from 'react'
 import Media from 'react-media'
 import { useSelector } from 'react-redux';
 import { AmountCoffee, ButtonBuy, ButtonEx, ContainerCoffeeDetail, ContainerContentCoffeeDetail, ContainerImgCoffeeDetail, ImgCoffeeDetail, PriceCoffee, TitleCoffee } from './styled';
-import Loading from '@/Components/Loading'
+import Loading from '@/Components/MyLoading'
 import ButtonBasic from '@/Components/ButtonBasic';
 import { images } from '@/common/images';
 import BtnBack from '@/Components/BtnBack';

@@ -3,7 +3,7 @@ import { Row } from 'antd'
 import React, { useEffect } from 'react'
 import Media from 'react-media'
 import { ContainerCoffeeShop } from './styled'
-import Loading from '@/Components/Loading'
+import Loading from '@/Components/MyLoading'
 import Item from '@/Components/Item'
 import { useRouter } from 'next/router'
 
@@ -22,7 +22,7 @@ const CoffeeShop = () => {
             {
               listAllNFT.data.map(coffee=>(
                 <Item
-                  onClick={()=>router.push(`/coffee-shop/${coffee?.name}--${coffee?.id}`)}
+                  onClick={()=>router.push(`/CoffeeShop/${coffee?.name}--${coffee?.id}`)}
                   key={coffee}
                   item={coffee}
                 />

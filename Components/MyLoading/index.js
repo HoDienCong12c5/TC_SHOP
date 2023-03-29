@@ -20,9 +20,9 @@ const antIcon = (
 // margin: auto;
 // width: -webkit-fill-available;
 // top: 25%;
-const App = ({
+const MyLoading = ({
   width = null,
   ...props
 }) => <ContainerSpin width={width}{...props} indicator={antIcon} />
 
-export default App
+export default MyLoading

@@ -1,14 +1,8 @@
 import { modalConfig, PAGE_SIGN } from '@/common/constant'
 import ButtonBasic from '@/Components/ButtonBasic'
-import ModalTx from '@/Components/ModalTx'
-import useCallBackReject from '@/Hook/useCallBackReject'
 import { useWorkModal } from '@/Hook/useModal'
-import useUserData from '@/Hook/useUserData'
 import userUserInfo from '@/Hook/useUserInfor'
-import Metamask from '@/Modal/Metamask'
-import { ellipsisAddress } from '@/Utils/function'
 import ReduxService from '@/Utils/ReduxService'
-import Web3Service from '@/Utils/web3'
 import { DownOutlined } from '@ant-design/icons'
 import { Col, Dropdown, Row, Space } from 'antd'
 import Image from 'next/image'
@@ -18,14 +12,14 @@ import { useEffect } from 'react'
 import Media from 'react-media'
 import { useSelector } from 'react-redux'
 import ModalLogin from './component/ModalLogin'
+import NavDesktop from './component/NavDesktop'
 import styles from './Header.module.scss'
 import { ContainerHeader } from './styled'
+
 const Header = () => {
   const router = useRouter()
   const {isSigned,name} = userUserInfo()
-  const modal = useSelector(state => state.globalModal)
   const {showModal} = useWorkModal()
-
   const message = useSelector(state => state.locale.messages)
   useEffect(() => {
     if(!isSigned){
@@ -65,30 +59,6 @@ const Header = () => {
         )
       }
     ]
-    const dataNav = [
-      {
-        tile:message.header.coffee,
-        route:'/coffee-shop'
-      },
-      {
-        tile:message.header.pod,
-        route:'/pod-shop'
-      },
-      {
-        tile:message.header.contact,
-        route:'/contact'
-      },
-      {
-        tile:message.header.about,
-        route:'/about'
-      }
-    ]
-    if(!isSigned){
-      dataNav.push({
-        tile:message.register.title,
-        route:'/register'
-      })
-    }
     return (
       <Row justify={'center'} align={'middle'} style={{height:'100%'}}>
         <Col span={4} style={{ textAlign: 'start' }}>
@@ -102,30 +72,7 @@ const Header = () => {
           </Link>
         </Col>
         <Col span={16}>
-          <Row align={'middle'}>
-            {
-              dataNav.map(menu=>(
-                <ButtonBasic
-                  key={menu}
-                  onClick={()=> router.push(menu.route)}
-                  className={styles['btn-item-menu']}
-                >
-                  {menu.tile}
-                </ButtonBasic>
-              ))
-            }
-            {
-              isSigned && (
-                <ButtonBasic
-                  onClick={()=> router.push('/my-cart')}
-                  className={styles['btn-item-menu']}
-                >
-                  {message.header.cart}
-                </ButtonBasic>
-              )
-            }
-
-          </Row>
+          <NavDesktop />
 
         </Col>
         <Col span={4} style={{ textAlign: 'end' }}>
@@ -174,9 +121,11 @@ const Header = () => {
     </ContainerHeader>
   )
 }
-Header.getStaticProps = (context)=> {
+export async function getStaticProps() {
   return {
-    props: {}, // will be passed to the page component as props
+    props:{
+      data:null
+    }
   }
 }
 export default Header

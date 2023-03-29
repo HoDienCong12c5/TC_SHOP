@@ -36,7 +36,7 @@ export const ButtonBuy = styled(ButtonBasic)`
 `;
 export const ButtonEx = styled.div`
   height: 30px;
-  width: 50px;
+  width: ${props=>props.width ?? 50}px;
   line-height: 27px;
   font-weight: bold;
   background: white;
@@ -50,7 +50,7 @@ export const ButtonEx = styled.div`
 `;
 export const AmountCoffee = styled.div`
   height: 30px;
-  width: 50px;
+  min-width: 50px;
   line-height: 30px;
   font-weight: bold;
   background: white;

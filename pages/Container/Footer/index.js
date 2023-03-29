@@ -13,7 +13,7 @@ import ContainerFooter, {
 import img from '@/common/images'
 // import GGMap from './components/ggMap'
 import firebase from '@/Services/FirebaseService'
-import Loading from '@/Components/Loading'
+import Loading from '@/Components/MyLoading'
 import { useSelector } from 'react-redux'
 
 const Footer = () => {

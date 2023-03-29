@@ -6,7 +6,7 @@ import { Row } from 'antd';
 import classNames from 'classnames';
 import { useEffect, useState } from 'react';
 import { ContainerNFTDetail, LeftNFTContainerImg, LeftNFTDetail, RightNFTDetail, TextMedium } from './styled';
-import Loading from '@/Components/Loading'
+import Loading from '@/Components/MyLoading'
 import { CHAIN_ID_SUPPORT } from '@/common/constant';
 import {convertUtfToHex} from '@/Utils/function'
 const NFTDetail = ({ hash }) => {

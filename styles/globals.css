@@ -136,4 +136,6 @@ a {
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
-
+.ant-menu-vertical{
+  margin-bottom: 0px !important;
+}

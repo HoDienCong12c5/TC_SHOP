@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components';
 import { MediumText, NormalText, TitleText } from '../TextSize';
 import ButtonBasic from '../ButtonBasic';
-import Loading from '../Loading'
+import Loading from '../MyLoading'
 const ContainerModalTx = styled.div`
 display: flex;
 flex-direction: column; 
@@ -35,7 +35,7 @@ const ModalTx = ({
 
       {
         onSubmit && (
-          <ButtonBasic onClick={onSubmit}>
+          <ButtonBasic onClick={onSubmit} className='mt-10'>
             {titleBtn}
           </ButtonBasic>
         )
