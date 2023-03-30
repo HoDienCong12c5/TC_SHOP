@@ -363,3 +363,8 @@
 .disabled {
   opacity: 0.5;
 }
+@for $pixel from 0 through 10 {
+  .op-0_#{$pixel} {
+    opacity:  #{$pixel/10} !important;
+  }
+}

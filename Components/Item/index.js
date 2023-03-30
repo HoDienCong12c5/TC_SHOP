@@ -1,11 +1,11 @@
-import { BSC_RPC, URI_, URL_ } from '@/common/constant';
-import { convertDateFormat, detectImageUrl, ellipsisAddress, viewExternal } from '@/Utils/function';
-import { useCallback } from 'react';
+import { COLOR } from '@/common/constant';
+import { detectImageUrl, numberWithCommas, roundingNumber } from '@/Utils/function';
+import { Col, Row } from 'antd';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import ImageLazy from '../ImageLazy';
-import ImageNext from '../ImageNext';
-import { MediumText, NormalText, TitleText } from '../TextSize';
+import MySliderSell from '../MySliderSell';
+import { MediumText, NormalText } from '../TextSize';
 const ContainerItem = styled.div`
     justify-content: center;
     align-items: center; 
@@ -31,14 +31,22 @@ const ContainerImg = styled.div`
 `
 
 const PriceItem = styled(MediumText)`
-   font-weight: bold;
+color:green;
    text-transform: uppercase;
+   font-size: 1.75rem;
 `
-export const ImgCoffeeDetail = styled(ImageNext)`
-  max-width: 100%;
-  max-height: auto;
+export const ImgCoffeeDetail = styled(ImageLazy)`
   max-height: 260px;
 `;
+export const ContainerDiscount = styled.div`
+    padding: 0px 5px;
+  border:1px solid ${COLOR.green1};
+`;
+export const TitleText = styled(MediumText)`
+  margin-bottom: 10px;
+  font-weight:600;
+`;
+
 const Item = ({
   item,
   onClick
@@ -47,26 +55,46 @@ const Item = ({
   return (
     <ContainerItem>
       <ContainerImg onClick={onClick}>
+        {/* <ImgCoffeeDetail
+          src={detectImageUrl(item?.image_main)}
+          alt= {item.name}
+        /> */}
         <ImgCoffeeDetail
           src={detectImageUrl(item?.image_main)}
           alt= {item.name}
         />
-        {/* <ImageLazy
-          src={detectImageUrl(item?.image_main)}
-          alt={detectImageUrl(item?.image_main)}
-        /> */}
       </ContainerImg>
 
-      <div style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: 3 }}>
-        <MediumText textTransform>
+      <div className={'mt-10'} style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: 3 }}>
+        <TitleText textTransform>
           {item.name}
-        </MediumText>
-        <MediumText >
-          {`${messages.coffeeDetail.sold}: ${item.sell}`}
-        </MediumText>
-        <PriceItem className='mb-10'>
-          {`${item.price}.000 VND`}
-        </PriceItem>
+        </TitleText>
+        <Row justify={'space-between'} className={'w-full'}>
+          <Col>
+            <NormalText className={'text-decoration op-0_0'}>
+              {`đ. ${numberWithCommas(item.price * 1.2)}`}
+            </NormalText>
+          </Col>
+          <Col>
+            <ContainerDiscount >
+              {`${messages.textPopular.discount} ${20}%`}
+            </ContainerDiscount>
+          </Col>
+        </Row>
+
+
+        <Row align={'middle'}>
+          <NormalText>đ.</NormalText>
+          <PriceItem className='mb-10'>
+            {`${numberWithCommas(item.price)}`}
+          </PriceItem>
+        </Row>
+
+        <MySliderSell
+          className='mb-10'
+          total={item.totalNumber}
+          sell={item.sell}
+        />
       </div>
     </ContainerItem>
   )

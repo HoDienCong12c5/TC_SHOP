@@ -146,6 +146,10 @@ export const CHAIN_ID_SUPPORT = {
   '5':'0x1',
   '97':'0x61'
 }
+export const COLOR = {
+  green1:'#06BF7B',
+  yellow:'yellow'
+}
 
 export const PAGE_NO_HEADER_FOOTER = [
   '/register',

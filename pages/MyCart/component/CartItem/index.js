@@ -43,7 +43,7 @@ const CartItem = ({ itemCart, listCartRef, listAllCoffee, indexCartItem }) => {
   useEffect(() => {
     if (listAllCoffee.data?.length > 0) {
       listAllCoffee.data.forEach((coffee) => {
-        if (coffee.id === listCartRef.current[indexCartItem].idProduct) {
+        if (coffee.id === listCartRef.current[indexCartItem]?.idProduct) {
           listCartRef.current[indexCartItem].price = coffee.price;
           listCartRef.current[indexCartItem].amount = amount;
           listCartRef.current[indexCartItem].total = coffee.price * amount;
