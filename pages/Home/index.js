@@ -8,6 +8,10 @@ import SEO from '@/pages/Container/Header/seo';
 import useGetAllNFT from '@/Hook/useGetAllNFT';
 import BannerHome from './Component/Banner';
 import InfoHome from './Component/Info';
+import { Col, Row } from 'antd'
+import { MediumText, TitleText } from '@/Components/TextSize';
+import { useSelector } from 'react-redux';
+import ItemCard from './Component/ItemCart';
 // import jwt_decode from 'jwt-decode';
 var jwt = require('jsonwebtoken');
 const menuHome = [
@@ -32,6 +36,7 @@ const menuHome = [
 ]
 
 const HomeScreen = () => {
+  const message = useSelector(state => state.locale.messages)
   const router = useRouter()
   const {listAllNFT} = useGetAllNFT()
 
@@ -50,9 +55,29 @@ const HomeScreen = () => {
   }
   const renderDesktop = () => {
     return (
-      <ContentHome>
+      <>
         {/* <BannerHome /> */}
-      </ContentHome>
+        <Row align={'middle'} >
+          <TitleText className='pr-10'
+            fontWeight='bold'
+            textTransform
+          >
+            {message.home.titleCoffee}
+          </TitleText>
+          <div style={{display:'flex', flex:1, border:'1px solid', height:1}}></div>
+        </Row>
+        <ItemCard />
+
+        <Row align={'middle'}>
+          <TitleText className='pr-10'
+            fontWeight='bold'
+            textTransform
+          >
+            {message.home.titlePod}
+          </TitleText >
+          <div style={{display:'flex', flex:1, border:'1px solid', height:1}}></div>
+        </Row>
+      </>
     )
   }
   const renderMobile = () => {

@@ -97,5 +97,9 @@
     "notAllowed": "You are not allowed to create NFT",
     "pageNotFound": "PAGE NOT FOUND",
     "changeRpc": "Error Contract or Back-end, front-end"
+  },
+  "home":{
+    "titleCoffee":"Coffee",
+    "titlePod":"Pod Điện Tử"
   }
 }
