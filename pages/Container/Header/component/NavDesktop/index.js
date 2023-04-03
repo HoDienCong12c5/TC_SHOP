@@ -7,6 +7,14 @@ import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import styles from '../../Header.module.scss'
+import Image from 'next/image';
+import ImageNext from '@/Components/ImageNext';
+import { images } from '@/common/images';
+import styled from 'styled-components';
+export const Icon = styled(Image)`
+  width: 20px;
+  height: 20px;
+`;
 
 const NavDesktop = () => {
   const [listMenuNav, setListMenuNav] = useState([])
@@ -82,7 +90,9 @@ const NavDesktop = () => {
               onClick={()=> router.push('/MyCart')}
               className={styles['btn-item-menu']}
             >
-              {messages.header.cart}
+              {/* {messages.header.cart} */}
+              <Icon src={images.icon.iconCart} />
+
             </ButtonBasic>
           ),
           key: 'register',

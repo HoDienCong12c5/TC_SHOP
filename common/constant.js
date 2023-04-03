@@ -147,7 +147,7 @@ export const CHAIN_ID_SUPPORT = {
   '97':'0x61'
 }
 export const COLOR = {
-  green1:'#06BF7B',
+  green1:'#66FF33',
   yellow:'yellow'
 }
 

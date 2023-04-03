@@ -270,3 +270,20 @@ input#ratio {
 .text-decoration{
   text-decoration: line-through;
 }
+.flex{
+ display: flex;
+ flex-direction: row;
+ align-items: center;
+ &-center{
+  justify-content: center;
+ }
+ &-space{
+  justify-content: space-between;
+ }
+ &-no-warp{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+ }
+
+}
