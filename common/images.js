@@ -36,7 +36,10 @@ export const images = {
   icon:{
     // iconCart:'/static/asset/image/Icon/iconCart.svg',
     iconBack:require('static/asset/image/Icon/iconBack.png'),
-    iconCart:require('static/asset/image/Icon/iconCart.png')
+    iconCart:require('static/asset/image/Icon/iconCart.png'),
+    iconShield:require('static/asset/image/Icon/iconShield.png'),
+    iconSupport:require('static/asset/image/Icon/iconSupport.png'),
+    iconResponsibility:require('static/asset/image/Icon/iconResponsibility.png')
   }
 }
 export default Img
