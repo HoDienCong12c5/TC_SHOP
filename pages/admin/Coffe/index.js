@@ -11,6 +11,7 @@ const Coffee = () => {
         <Col span={11} offset={1} >
         </Col>
       </Row>
+
     </>
   }
   const renderMobile = () => {
