@@ -1,12 +1,16 @@
 import ButtonBasic from '@/Components/ButtonBasic';
 import MyMenu from '@/Components/MyMenu';
 import userUserInfo from '@/Hook/useUserInfor';
-import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
+import {
+  AppstoreOutlined,
+  MailOutlined,
+  SettingOutlined,
+} from '@ant-design/icons';
 import { Menu } from 'antd';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import styles from '../../Header.module.scss'
+import styles from '../../Header.module.scss';
 import Image from 'next/image';
 import ImageNext from '@/Components/ImageNext';
 import { images } from '@/common/images';
@@ -15,13 +19,23 @@ export const Icon = styled(Image)`
   width: 20px;
   height: 20px;
 `;
+const IconNumberCart = styled.div`
+  width: 17px;
+  height: 18px;
+  border-radius: 50%;
+  position: absolute;
+  left: 34px;
+  top: -1px;
+  font-size: 12px;
+  background: rgba(6, 191, 123, 0.4);
+`;
 
 const NavDesktop = () => {
-  const [listMenuNav, setListMenuNav] = useState([])
+  const [listMenuNav, setListMenuNav] = useState([]);
 
-  const router = useRouter()
-  const {isSigned} = userUserInfo()
-  const messages = useSelector(state=>state.locale.messages)
+  const router = useRouter();
+  const { isSigned } = userUserInfo();
+  const messages = useSelector((state) => state.locale.messages);
 
   useEffect(() => {
     const initMenuNav = () => {
@@ -70,10 +84,10 @@ const NavDesktop = () => {
           ),
           key: 'contact',
         },
-      ]
+      ];
       if (!isSigned) {
         arrNav.push({
-          label:(
+          label: (
             <ButtonBasic
               onClick={() => router.push('/Register')}
               className={styles['btn-item-menu']}
@@ -82,32 +96,28 @@ const NavDesktop = () => {
             </ButtonBasic>
           ),
           key: 'register',
-        })
-      }else{
+        });
+      } else {
         arrNav.push({
-          label:(
+          label: (
             <ButtonBasic
-              onClick={()=> router.push('/MyCart')}
+              onClick={() => router.push('/MyCart')}
               className={styles['btn-item-menu']}
             >
-              {/* {messages.header.cart} */}
-              <Icon src={images.icon.iconCart} />
-
+              <IconNumberCart>2</IconNumberCart>
+              <Icon className="ml-3" src={images.icon.iconCart} />
             </ButtonBasic>
           ),
           key: 'register',
-        })
-
+        });
       }
 
-      setListMenuNav(arrNav)
-    }
-    initMenuNav()
-  }, [isSigned])
+      setListMenuNav(arrNav);
+    };
+    initMenuNav();
+  }, [isSigned]);
 
-  return (
-    <MyMenu mode="horizontal" items={listMenuNav}/>
-  )
-}
+  return <MyMenu mode="horizontal" items={listMenuNav} />;
+};
 
-export default NavDesktop
+export default NavDesktop;

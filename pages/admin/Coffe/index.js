@@ -19,6 +19,7 @@ const Coffee = () => {
 
         </Col>
       </Row>
+
     </>
   }
   const renderMobile = () => {
