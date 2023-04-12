@@ -9,6 +9,11 @@
 // mb- => margin-bottom
 // ml- => margin-left
 // mr- => margin-right
+@for $h from 0 through 200 {
+  .h-#{h}vh{
+    height: #{h}#{'vh'} !important ;
+  }
+}
 @for $pixel from 0 through 200 {
 
   // ** PADDING HEPLER **
@@ -95,6 +100,7 @@
 .h-auto {
   height: auto !important;
 }
+
 
 .h-full {
   height: 100% !important;

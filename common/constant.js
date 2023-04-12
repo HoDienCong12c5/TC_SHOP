@@ -156,6 +156,10 @@ export const PAGE_NO_HEADER_FOOTER = [
   '/landing-page',
   '/login'
 ]
+export const TYPE_CHART = {
+  barChart:'barChart',
+  pieChart:'pieChart'
+}
 
 export const URI_NFT = process.env.NEXT_PUBLIC_URI_NFT
 export const URI_NFT_CHAIN = process.env.NEXT_PUBLIC_URI_NFT_CHAIN

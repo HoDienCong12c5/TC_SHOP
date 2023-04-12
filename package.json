@@ -3,8 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev-js": "next dev",
+    "build-js": "next build",
+    "dev": "env-cmd -f .env.development npm run-script dev-js",
+    "dev:production": "env-cmd -f .env.production npm run-script dev-js",
+    "build": "env-cmd -f .env.development npm run-script build-js",
+    "build:production": "env-cmd -f .env.production npm run-script build-js",
     "start": "next start",
     "lint": "next lint"
   },
@@ -41,6 +45,7 @@
     "react": "18.2.0",
     "react-device-detect": "^2.2.3",
     "react-dom": "18.2.0",
+    "react-if": "^4.1.4",
     "react-intl": "^6.2.10",
     "react-lazy-load-image-component": "^1.5.6",
     "react-media": "^1.10.0",

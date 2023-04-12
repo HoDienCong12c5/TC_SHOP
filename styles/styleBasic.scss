@@ -21,7 +21,15 @@
   border: 1px red solid;
   border-radius: 16px;
 }
-
+.container-base{
+  max-width: 1450px;
+  margin: auto;
+  text-align: center;
+  padding: 0px 50px;
+  height: max-content;
+  align-items: center;
+  align-content: center;
+}
 .container-basic {
   width: 100%;
   max-width: 1450px;

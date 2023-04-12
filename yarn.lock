@@ -8033,6 +8033,11 @@ react-easy-crop@^4.7.4:
     normalize-wheel "^1.0.1"
     tslib "2.0.1"
 
+react-if@^4.1.4:
+  version "4.1.4"
+  resolved "https://registry.yarnpkg.com/react-if/-/react-if-4.1.4.tgz#aa33d954993f9d9992f0c7ab8ca9e40c5f2509f2"
+  integrity sha512-bjufPfCdPBiBy9EO/BeoxaqGc/xCwTu0coKtHfjpJw+v85DLMbpG43IUPISh+m3DzENx1rOYLpqbp2KaDmEYlg==
+
 react-intl@^6.2.10:
   version "6.2.10"
   resolved "https://registry.yarnpkg.com/react-intl/-/react-intl-6.2.10.tgz#586ba261b3ff67be09072fefdee2ef58497e0ea2"
