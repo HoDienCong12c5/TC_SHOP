@@ -114,7 +114,7 @@ const CoffeeDetail = ({name}) => {
                   </ButtonBuy>
                 </Col>
                 <Col span={8} offset={1} type={3}>
-                  <ButtonBuy className='btn-one'>
+                  <ButtonBuy className='btn-one w-auto'>
                     {message.common.addCart}
                     <Image
                       loading='lazy'

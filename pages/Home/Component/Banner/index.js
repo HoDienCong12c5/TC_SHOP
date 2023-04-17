@@ -1,5 +1,5 @@
 import React from 'react';
-import { Slide, Zoom } from 'react-slideshow-image';
+import { Slide } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css';
 
 const BannerHome = () => {
@@ -10,13 +10,13 @@ const BannerHome = () => {
   ];
 
   return (
-    <Zoom scale={1.4} indicators={true}>
+    <Slide cssClass='slider-show' slidesToScroll={1} indicators={true}>
       {images.map((each, index) => (
         <div key={index} style={{ width: '100%' }}>
           <img style={{ objectFit: 'cover', width: '100%', maxHeight:500 }} alt="Slide Image" src={each} />
         </div>
       ))}
-    </Zoom>
+    </Slide>
   );
 };
 

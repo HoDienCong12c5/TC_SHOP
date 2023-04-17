@@ -12,6 +12,7 @@ import { Col, Row } from 'antd'
 import { MediumText, TitleText } from '@/Components/TextSize';
 import { useSelector } from 'react-redux';
 import ItemCard from './Component/ItemCart';
+import ListProduct from '../Container/Header/ListProduct';
 // import jwt_decode from 'jwt-decode';
 var jwt = require('jsonwebtoken');
 const menuHome = [
@@ -56,27 +57,9 @@ const HomeScreen = () => {
   const renderDesktop = () => {
     return (
       <>
-        {/* <BannerHome /> */}
-        <Row align={'middle'} >
-          <TitleText className='pr-10'
-            fontWeight='bold'
-            textTransform
-          >
-            {message.home.titleCoffee}
-          </TitleText>
-          <div style={{display:'flex', flex:1, border:'1px solid', height:1}}></div>
-        </Row>
-        <ItemCard />
+        <ListProduct title={message.home.titleCoffee}/>
+        <ListProduct title={message.home.titlePod} typeProduct={'pod'}/>
 
-        <Row align={'middle'}>
-          <TitleText className='pr-10'
-            fontWeight='bold'
-            textTransform
-          >
-            {message.home.titlePod}
-          </TitleText >
-          <div style={{display:'flex', flex:1, border:'1px solid', height:1}}></div>
-        </Row>
       </>
     )
   }

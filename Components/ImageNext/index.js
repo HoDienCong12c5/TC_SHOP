@@ -16,7 +16,6 @@ const ImageNext = ({
     <ImgCustom
       src={src}
       alt={alt ?? src}
-      className={className}
       height={475}
       width={700}
       sizes="100vw"
@@ -26,6 +25,8 @@ const ImageNext = ({
       }}
       blurDataURL="URL"
       placeholder="blur"
+      className={className}
+
       {...props}
     />
   )

@@ -11,6 +11,7 @@ const userUserInfo = () => {
     userName:  userInfo?.userName || null,
     pass: userInfo?.pass || null,
     idUser:  userInfo?.id || null,
+    isAdmin: Boolean(userInfo?.isAdmin === 'true'),
   }
 }
 

@@ -148,7 +148,9 @@ export const CHAIN_ID_SUPPORT = {
 }
 export const COLOR = {
   green1:'#66FF33',
-  yellow:'yellow'
+  green:'green',
+  yellow:'yellow',
+  white1:'#f5f5f5'
 }
 
 export const PAGE_NO_HEADER_FOOTER = [

@@ -61,6 +61,7 @@ const ReduxService = {
       if(dataUser?.length > 0){
         dataUser.forEach(user=>{
           if(user.userName === userName && user.pass === passWord){
+            console.log({user});
             ReduxService.callDispatchAction(PageReduxAction.setUserInfo(user))
             saveLogin && saveDataLocal(KEY_PAGE.SET_USER_INFO, user)
             Observer.emit(OBSERVER_KEY.LOGIN)

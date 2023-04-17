@@ -16,6 +16,17 @@
     }
   }
 }
+.react-slideshow-container{
+  .default-nav{
+    opacity: 0;
+  }
+  &:hover{
+    .default-nav{
+      opacity: 1;
+      transition: 0.5s;
+    }
+  }
+}
 
 .menu-left {
   border: 1px red solid;

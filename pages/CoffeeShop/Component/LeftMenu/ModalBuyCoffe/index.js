@@ -1,6 +1,5 @@
 import { BG_BTN } from '@/common/constant'
 import ButtonBasic from '@/Components/ButtonBasic'
-import MyInput from '@/Components/MyInput'
 import { MediumText } from '@/Components/TextSize'
 import { useWorkModal } from '@/Hook/useModal'
 import { FormItem, InputForm } from '@/pages/CoffeeShop/styled'
@@ -9,8 +8,7 @@ import { Col, Form, Row } from 'antd'
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { ConFormModalBuyCoffee, ConModalBuyCoffee, TitleModalBuyCoffee } from './styled'
-
-const ModalBuyCoffee = ({
+const ModalBuyCoffe = ({
   coffee,
   number = 1
 }) => {
@@ -62,23 +60,22 @@ const ModalBuyCoffee = ({
     console.log('====================================');
 
   }
-
   return (
-    <ConModalBuyCoffee>const
+    <ConModalBuyCoffee>
       <TitleModalBuyCoffee >
         {message.coffeeDetail.modalBuy.titleOder}
       </TitleModalBuyCoffee>
       <MediumText>
         {`${message.textPopular.nameProduct}: ${coffee?.name}`}
       </MediumText>
-      <Row >
+      <div className='flex' >
         <MediumText fontWeight={500} color={BG_BTN.bgWarning}>
           {`${message.textPopular.totalMoney}`}
         </MediumText>
         <MediumText fontWeight={500} color={BG_BTN.bgWarning}>
-          {`:  ${number} * ${numberWithCommas(coffee.price)} = ${numberWithCommas(coffee.price * number)} VND`}
+          {`:  ${number} * ${numberWithCommas(coffee?.price ?? 0)} = ${numberWithCommas((coffee?.price ?? 0) * number)} VND`}
         </MediumText>
-      </Row>
+      </div>
 
       <ConFormModalBuyCoffee>
         <Form
@@ -145,4 +142,4 @@ const ModalBuyCoffee = ({
   )
 }
 
-export default ModalBuyCoffee
+export default ModalBuyCoffe

@@ -1,16 +1,19 @@
 import { TitleText } from '@/Components/TextSize'
 import { useWorkModal } from '@/Hook/useModal'
 import { Col, Form, Row,Checkbox } from 'antd'
-import React, { useMemo, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { ContainerRegister } from './styled'
 import { InputForm } from '@/pages/CoffeeShop/styled'
 import ButtonBasic from '@/Components/ButtonBasic'
 import { useRouter } from 'next/router'
+import useUserData from '@/Hook/useUserData'
+import userUserInfo from '@/Hook/useUserInfor'
 
 const Register = () => {
   const route = useRouter()
   const {hideModal} = useWorkModal()
+  const {isSigned} = userUserInfo()
   const [form] = Form.useForm()
   const message = useSelector(state => state.locale.messages)
 
@@ -21,6 +24,12 @@ const Register = () => {
     passWordAgain:'',
     numberPhone:''
   });
+
+  useEffect(() => {
+    if(isSigned){
+      route.push('/')
+    }
+  }, [isSigned])
 
   const checkValidRegister = useMemo(() => {
     for (const key in formData) {

@@ -30,7 +30,7 @@ const ContainerImg = styled.div`
     text-align: center;
 `
 
-const PriceItem = styled(MediumText)`
+export const PriceItem = styled(MediumText)`
 color:green;
    text-transform: uppercase;
    font-size: 1.75rem;

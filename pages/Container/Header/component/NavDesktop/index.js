@@ -29,12 +29,16 @@ const IconNumberCart = styled.div`
   font-size: 12px;
   background: rgba(6, 191, 123, 0.4);
 `;
+export const H1Custom = styled.h1`
+ margin-bottom: 0px;
+ font-size: 14px;
+`;
 
 const NavDesktop = () => {
   const [listMenuNav, setListMenuNav] = useState([]);
 
   const router = useRouter();
-  const { isSigned } = userUserInfo();
+  const { isSigned,isAdmin } = userUserInfo();
   const messages = useSelector((state) => state.locale.messages);
 
   useEffect(() => {
@@ -42,45 +46,57 @@ const NavDesktop = () => {
       const arrNav = [
         {
           label: (
-            <ButtonBasic
-              onClick={() => router.push('/CoffeeShop')}
-              className={styles['btn-item-menu']}
-            >
-              {messages.header.coffee}
-            </ButtonBasic>
+            <H1Custom>
+              <ButtonBasic
+                onClick={() => router.push('/CoffeeShop')}
+                className={styles['btn-item-menu']}
+              >
+                {messages.header.coffee}
+              </ButtonBasic>
+            </H1Custom>
+
           ),
           key: 'coffee',
         },
         {
           label: (
-            <ButtonBasic
-              onClick={() => router.push('/PodShop')}
-              className={styles['btn-item-menu']}
-            >
-              {messages.header.pod}
-            </ButtonBasic>
+            <H1Custom >
+              <ButtonBasic
+                onClick={() => router.push('/PodShop')}
+                className={styles['btn-item-menu']}
+              >
+                {messages.header.pod}
+              </ButtonBasic>
+            </H1Custom>
+
           ),
           key: 'pod',
         },
         {
           label: (
-            <ButtonBasic
-              onClick={() => router.push('/About')}
-              className={styles['btn-item-menu']}
-            >
-              {messages.header.about}
-            </ButtonBasic>
+            <H1Custom >
+              <ButtonBasic
+                onClick={() => router.push('/About')}
+                className={styles['btn-item-menu']}
+              >
+                {messages.header.about}
+              </ButtonBasic>
+            </H1Custom>
+
           ),
           key: 'about',
         },
         {
           label: (
-            <ButtonBasic
-              onClick={() => router.push('/Contact')}
-              className={styles['btn-item-menu']}
-            >
-              {messages.header.contact}
-            </ButtonBasic>
+            <H1Custom >
+              <ButtonBasic
+                onClick={() => router.push('/Contact')}
+                className={styles['btn-item-menu']}
+              >
+                {messages.header.contact}
+              </ButtonBasic>
+            </H1Custom>
+
           ),
           key: 'contact',
         },
@@ -88,28 +104,52 @@ const NavDesktop = () => {
       if (!isSigned) {
         arrNav.push({
           label: (
-            <ButtonBasic
-              onClick={() => router.push('/Register')}
-              className={styles['btn-item-menu']}
-            >
-              {messages.register.title}
-            </ButtonBasic>
+            <H1Custom >
+              <ButtonBasic
+                onClick={() => router.push('/Register')}
+                className={styles['btn-item-menu']}
+              >
+                {messages.register.title}
+              </ButtonBasic>
+            </H1Custom>
+
           ),
           key: 'register',
         });
       } else {
-        arrNav.push({
-          label: (
-            <ButtonBasic
-              onClick={() => router.push('/MyCart')}
-              className={styles['btn-item-menu']}
-            >
-              <IconNumberCart>2</IconNumberCart>
-              <Icon className="ml-3" src={images.icon.iconCart} />
-            </ButtonBasic>
-          ),
-          key: 'register',
-        });
+        if(isAdmin){
+          arrNav.push({
+            label: (
+              <H1Custom >
+                <ButtonBasic
+                  onClick={() => router.push('/admin')}
+                  className={styles['btn-item-menu']}
+                >
+                  Admin
+                </ButtonBasic>
+              </H1Custom>
+
+            ),
+            key: 'admin',
+          });
+        }else{
+          arrNav.push({
+            label: (
+              <H1Custom >
+                <ButtonBasic
+                  onClick={() => router.push('/MyCart')}
+                  className={styles['btn-item-menu']}
+                >
+                  <IconNumberCart>2</IconNumberCart>
+                  <Icon className="ml-3" src={images.icon.iconCart} />
+                </ButtonBasic>
+              </H1Custom>
+
+            ),
+            key: 'register',
+          });
+        }
+
       }
 
       setListMenuNav(arrNav);
