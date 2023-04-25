@@ -48,7 +48,7 @@ const ModalLogin = () => {
   const [saveLogin, setSaveLogin] = useState(true)
   const [loadingLogin, setLoadingLogin] = useState(false)
   const [formData, setFormData] = useState({
-    userName :'',
+    numberPhone :'',
     passWord:''
   });
   useEffect(() => {
@@ -62,10 +62,10 @@ const ModalLogin = () => {
     let login = false
     setLoadingLogin(true)
     if(saveLogin){
-      login = await ReduxService.getUserInfo(formData.userName,formData.passWord,true)
+      login = await ReduxService.getUserInfo(formData.numberPhone,formData.passWord,true)
 
     }else{
-      login = await ReduxService.getUserInfo(formData.userName,formData.passWord)
+      login = await ReduxService.getUserInfo(formData.numberPhone,formData.passWord)
     }
     if(!login){
       hideModal()
@@ -86,21 +86,21 @@ const ModalLogin = () => {
         onValuesChange={(changedValues, allValue) => setFormData(allValue)}
       >
         <Form.Item
-          name={'userName'}
-          label={message.coffeeDetail.modalBuy.enterName}
+          name={'numberPhone'}
+          label={message.coffeeDetail.modalBuy.enterNumberPhone}
         >
           <InputForm
-            placeholder={message.coffeeDetail.modalBuy.enterName}
+            placeholder={message.coffeeDetail.modalBuy.enterNumberPhone}
           />
         </Form.Item>
         <Form.Item
 
           name={'passWord'}
-          label={message.coffeeDetail.modalBuy.enterName}
+          label={message.register.enterPassWord}
         >
           <InputForm
             password
-            placeholder={message.coffeeDetail.modalBuy.enterName}
+            placeholder={message.register.enterPassWord}
           />
         </Form.Item>
       </Form>

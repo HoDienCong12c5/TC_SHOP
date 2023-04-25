@@ -80,6 +80,17 @@
   .mr-#{$pixel} {
     margin-right: #{$pixel}px !important;
   }
+  .h-#{$pixel}{
+    height: #{$pixel}#{'px'} !important ;
+  }
+  .w-#{$pixel}{
+    width: #{$pixel}#{'px'} !important ;
+  }
+  .size-#{$pixel}{
+    width: #{$pixel}#{'px'} !important ;
+    height: #{$pixel}#{'px'} !important ;
+
+  }
 
   // ** /END MARGIN HELPER **
 }

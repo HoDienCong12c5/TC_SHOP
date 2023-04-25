@@ -55,12 +55,12 @@ const ReduxService = {
   closeModal: () => {
     ReduxService.callDispatchAction(PageReduxAction.setGlobalModal({ show: false }))
   },
-  getUserInfo:async (userName, passWord, saveLogin = false) => {
+  getUserInfo:async (numberPhone, passWord, saveLogin = false) => {
     return new Promise(async(resolve,reject)=>{
       const dataUser = await FirebaseService.user.getAllData()
       if(dataUser?.length > 0){
         dataUser.forEach(user=>{
-          if(user.userName === userName && user.pass === passWord){
+          if(user.numberPhone.toString().trim() === numberPhone.toString().trim() && user.pass === passWord.toString().trim()){
             console.log({user});
             ReduxService.callDispatchAction(PageReduxAction.setUserInfo(user))
             saveLogin && saveDataLocal(KEY_PAGE.SET_USER_INFO, user)
@@ -69,7 +69,7 @@ const ReduxService = {
           }
         })
       }
-      reject(false)
+      resolve(false)
     })
 
   }

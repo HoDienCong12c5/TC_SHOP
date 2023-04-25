@@ -7,16 +7,16 @@ const withAntdLess = require('next-plugin-antd-less')
 const path = require('path');
 
 const nextConfig = {
-  // webpack(config) {
-  //   // Fixes npm packages that depend on `fs` module
-  //   config.resolve.fallback = {
-  //     ...config.resolve.fallback,
-  //     fs: false,
-  //     net: false,
-  //     tls: false
-  //   }
-  //   return config
-  // },
+  webpack(config) {
+    // Fixes npm packages that depend on `fs` module
+    config.resolve.fallback = {
+      ...config.resolve.fallback,
+      fs: false,
+      net: false,
+      tls: false
+    }
+    return config
+  },
   cleanDistDir: true,
   eslint: {
     ignoreDuringBuilds: true

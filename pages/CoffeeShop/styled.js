@@ -69,6 +69,12 @@ export const ImgCoffeeDetail = styled(ImageNext)`
   max-width: 500px;
   min-width: 300px;
   max-height: 500px !important;
+  @media screen and (max-width: 768px) {
+    max-height: 350px !important;
+    width:auto !important;
+    margin:auto !important;
+    min-width: auto;
+  }
 `;
 //------ modal buy coffee
 export const FormItem = styled(Form.Item)`

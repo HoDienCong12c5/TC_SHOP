@@ -5,11 +5,11 @@
   "scripts": {
     "dev-js": "next dev",
     "build-js": "next build",
-    "dev": "env-cmd -f .env.development npm run-script dev-js",
+    "dev": " env-cmd -f .env.development npm run-script dev-js",
     "dev:production": "env-cmd -f .env.production npm run-script dev-js",
     "build": "env-cmd -f .env.development npm run-script build-js",
     "build:production": "env-cmd -f .env.production npm run-script build-js",
-    "start": "next start",
+    "start": " next start",
     "lint": "next lint"
   },
   "dependencies": {

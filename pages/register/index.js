@@ -9,6 +9,9 @@ import ButtonBasic from '@/Components/ButtonBasic'
 import { useRouter } from 'next/router'
 import useUserData from '@/Hook/useUserData'
 import userUserInfo from '@/Hook/useUserInfor'
+import FirebaseService from '@/Services/FirebaseService'
+import ReduxService from '@/Utils/ReduxService'
+import { showNotification } from '@/Utils/function'
 
 const Register = () => {
   const route = useRouter()
@@ -18,9 +21,10 @@ const Register = () => {
   const message = useSelector(state => state.locale.messages)
 
   const [saveLogin, setSaveLogin] = useState(true)
+  const [loadingSubmit, setLoadingSubmit] = useState(false)
   const [formData, setFormData] = useState({
     userName :'',
-    passWord:'',
+    pass:'',
     passWordAgain:'',
     numberPhone:''
   });
@@ -54,15 +58,45 @@ const Register = () => {
     }
   }
   const checkPWAgin = (rule, passWordAgain) => {
-    if(formData.passWord !== passWordAgain){
+    if(formData.pass !== passWordAgain){
       return Promise.reject(message.warning.inValidPassWordAgain)
     }
   }
   const onRememberLogin = (e) => {
     setSaveLogin(!saveLogin)
   };
-  const submit = (params) => {
+  const checkNumberPhoneData = async (numberPhone) => {
+    const data = await FirebaseService.user.getDataByQuery('numberPhone','==',numberPhone)
+    if(data.length > 0) return false
+    return true
+  }
+  const submit = async () => {
+    setLoadingSubmit(true)
+    let data = formData
+    data.isAdmin = 'false',
+    data.name = data.userName
+    data.avatar = ''
+    delete data.passWordAgain
+    const check = await checkNumberPhoneData(formData.numberPhone)
+    if(check){
+      console.log('====================================');
+      console.log({c:await checkNumberPhoneData(formData.numberPhone)});
+      console.log('====================================');
+      // const addData = await FirebaseService.user.addData(data)
+      // if(addData){
+      //   await ReduxService.getUserInfo(
+      //     data.numberPhone,
+      //     data.pass,
+      //     saveLogin
+      //   )
 
+      // }
+      showNotification('Sn tại')
+
+    }else{
+      showNotification('Số điện thoại đã tồn tại')
+    }
+    setLoadingSubmit(false)
   }
 
 
@@ -95,23 +129,24 @@ const Register = () => {
           <InputForm placeholder={message.coffeeDetail.modalBuy.enterNumberPhone} />
         </Form.Item>
         <Form.Item
-          name={'passWord'}
+          name={'pass'}
           label={message.register.enterPassWord}
         >
-          <InputForm placeholder={message.register.enterPassWord} />
+          <InputForm password placeholder={message.register.enterPassWord} />
         </Form.Item>
         <Form.Item
           rules={[{validator:checkPWAgin}]}
           name={'passWordAgain'}
           label={message.register.enterPassWordAgain}
         >
-          <InputForm placeholder={message.register.enterPassWordAgain} />
+          <InputForm password placeholder={message.register.enterPassWordAgain} />
         </Form.Item>
       </Form>
       <Checkbox checked={saveLogin} onChange={onRememberLogin}>{message.register.saveRegister}</Checkbox>
       <Row className={'mt-15'} >
         <Col span={11}>
           <ButtonBasic
+            loading={loadingSubmit}
             disabled={!checkValidRegister}
             className={'w-full'}
             onClick={submit}
