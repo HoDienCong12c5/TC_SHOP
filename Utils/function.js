@@ -120,25 +120,9 @@ export const ellipsisAddress = (
   )}`
 }
 
-export const countDots = (strString, strLetter) => {
-  let string = strString.toString()
-  return (string.match(RegExp(strLetter, 'g')) || []).length
-}
-
 
 export const validateAddress = (strAddress) => {
-  var reg = ''
-  if (!strAddress.startsWith('0x')) {
-    return false
-  }
-
-  if (countDots(strAddress, '\\x') > 1) {
-    reg = /^([A-Fa-f0-9_]+)$/
-  } else {
-    reg = /^([A-Fa-f0-9_x]+)$/
-  }
-
-  return reg.test(strAddress)
+  return Web3.utils.isAddress(strAddress)
 }
 export const viewExternal = (url) => {
   window.open(url, '_blank')
@@ -180,6 +164,9 @@ export const detectImageUrl = (url) => {
 export const stingToArr = (text,index = 0) => {
   text = text.split('--')
   return text[index]
+}
+export const cloneObjArr = (data) => {
+  return JSON.parse(JSON.stringify(data))
 }
 export const numberWithCommas = (x) => {
   var parts = x.toString().split('.')

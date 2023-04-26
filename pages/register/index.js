@@ -7,10 +7,8 @@ import { ContainerRegister } from './styled'
 import { InputForm } from '@/pages/CoffeeShop/styled'
 import ButtonBasic from '@/Components/ButtonBasic'
 import { useRouter } from 'next/router'
-import useUserData from '@/Hook/useUserData'
 import userUserInfo from '@/Hook/useUserInfor'
 import FirebaseService from '@/Services/FirebaseService'
-import ReduxService from '@/Utils/ReduxService'
 import { showNotification } from '@/Utils/function'
 
 const Register = () => {
