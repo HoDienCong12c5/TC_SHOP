@@ -1,18 +1,11 @@
 import ButtonBasic from '@/Components/ButtonBasic';
 import MyMenu from '@/Components/MyMenu';
 import userUserInfo from '@/Hook/useUserInfor';
-import {
-  AppstoreOutlined,
-  MailOutlined,
-  SettingOutlined,
-} from '@ant-design/icons';
-import { Menu } from 'antd';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import styles from '../../Header.module.scss';
 import Image from 'next/image';
-import ImageNext from '@/Components/ImageNext';
 import { images } from '@/common/images';
 import styled from 'styled-components';
 export const Icon = styled(Image)`
@@ -106,7 +99,7 @@ const NavDesktop = () => {
           label: (
             <H1Custom >
               <ButtonBasic
-                onClick={() => router.push('/Register')}
+                onClick={() => router.push('/register')}
                 className={styles['btn-item-menu']}
               >
                 {messages.register.title}
