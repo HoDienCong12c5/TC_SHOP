@@ -6,8 +6,6 @@ import { ButtonMenu, ContainerMyProfile } from './styled';
 import { LeftMyProfile } from './styled';
 import { RightMyProfile } from './styled';
 import ImageNext from '@/Components/ImageNext';
-import ButtonBasic from '@/Components/ButtonBasic';
-import { NormalText } from '@/Components/TextSize';
 import { Menu } from 'antd';
 import styles from './MintNFT.module.scss'
 import { useState } from 'react';

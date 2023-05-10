@@ -204,7 +204,9 @@
   line-height: 1.5;
   font-weight: 600;
 }
-
+.text-underline {
+  text-decoration:underline;
+}
 .text-no-select {
   opacity: 0;
   position: absolute;
@@ -236,9 +238,6 @@
   text-transform: capitalize;
 }
 
-.text-underline {
-  text-decoration: underline;
-}
 
 .text-bold {
   font-weight: bold;
