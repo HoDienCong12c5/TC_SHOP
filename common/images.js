@@ -34,14 +34,20 @@ export const images = {
     iconSmell:'/static/asset/image/Home/smell.png'
   },
   icon:{
-    // iconCart:'/static/asset/image/Icon/iconCart.svg',
+    iconHistory:'/static/asset/image/Icon/iconHistory.png',
+    iconOrder:require('static/asset/image/Icon/iconOrder.png'),
     iconBack:require('static/asset/image/Icon/iconBack.png'),
     iconCart:require('static/asset/image/Icon/iconCart.png'),
     iconShield:require('static/asset/image/Icon/iconShield.png'),
     iconSupport:require('static/asset/image/Icon/iconSupport.png'),
     iconResponsibility:require('static/asset/image/Icon/iconResponsibility.png'),
     iconHeart:require('static/asset/image/Icon/iconHeart.png'),
-    iconHeart1:require('static/asset/image/Icon/iconHeart1.png')
+    iconHeart1:require('static/asset/image/Icon/iconHeart1.png'),
+    avatarDefault:require('static/asset/image/Icon/avatarDefault.png')
+  },
+  userDetail:{
+    iconUserDetail:require('static/asset/image/Profile/Userdetail/iconUserDetail.png'),
+
   }
 }
 export default Img

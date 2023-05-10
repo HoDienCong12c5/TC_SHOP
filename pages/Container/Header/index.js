@@ -15,6 +15,8 @@ import ModalLogin from './component/ModalLogin'
 import NavDesktop from './component/NavDesktop'
 import styles from './Header.module.scss'
 import { ContainerHeader } from './styled'
+import ImageNext from '@/Components/ImageNext'
+import { images } from '@/common/images'
 
 const Header = () => {
   const router = useRouter()
@@ -53,6 +55,14 @@ const Header = () => {
       {
         key: '1',
         label: (
+          <div onClick={()=>router.push('/profile/my-profile')}>
+            {message.header.myProfile}
+          </div>
+        )
+      },
+      {
+        key: '1',
+        label: (
           <div onClick={handleSignOut}>
             {message.textPopular.logOut}
           </div>
@@ -84,6 +94,7 @@ const Header = () => {
                 className={'hover'}
               >
                 <ButtonBasic className={styles['bnt-login']} style={{ background: '#f5f5f5', borderRadius: 0, border: '1px solid; black' }}>
+                  <ImageNext className={'h-25 w-25 mr-5'} src={images.icon.avatarDefault}/>
                   <Space>
                     {name}
                     <DownOutlined />

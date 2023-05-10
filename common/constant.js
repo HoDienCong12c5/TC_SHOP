@@ -1,3 +1,5 @@
+import { images } from './images'
+
 export const BSC_RPC = {
   56: {
     rpcUrls: ['https://bsc-dataseed.binance.org'],
@@ -161,6 +163,19 @@ export const PAGE_NO_HEADER_FOOTER = [
 export const TYPE_CHART = {
   barChart:'barChart',
   pieChart:'pieChart'
+}
+export const PAGE_PROFILE = {
+  myCard:'my-card',
+  myProfile:'my-profile',
+  historyBuy:'my-history',
+  other:'my-other'
+}
+
+export const ICON_PAGE_PROFILE = {
+  myCard:images.icon.iconCart,
+  myProfile:images.userDetail.iconUserDetail,
+  historyBuy:images.icon.iconHistory,
+  order:images.icon.iconOrder
 }
 
 export const URI_NFT = process.env.NEXT_PUBLIC_URI_NFT

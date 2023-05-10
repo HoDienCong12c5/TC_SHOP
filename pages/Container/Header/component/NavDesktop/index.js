@@ -41,7 +41,7 @@ const NavDesktop = () => {
           label: (
             <H1Custom>
               <ButtonBasic
-                onClick={() => router.push('/CoffeeShop')}
+                onClick={() => router.push('/coffeeShop')}
                 className={styles['btn-item-menu']}
               >
                 {messages.header.coffee}
@@ -55,7 +55,7 @@ const NavDesktop = () => {
           label: (
             <H1Custom >
               <ButtonBasic
-                onClick={() => router.push('/PodShop')}
+                onClick={() => router.push('/podShop')}
                 className={styles['btn-item-menu']}
               >
                 {messages.header.pod}
@@ -69,7 +69,7 @@ const NavDesktop = () => {
           label: (
             <H1Custom >
               <ButtonBasic
-                onClick={() => router.push('/About')}
+                onClick={() => router.push('/about')}
                 className={styles['btn-item-menu']}
               >
                 {messages.header.about}
@@ -83,7 +83,7 @@ const NavDesktop = () => {
           label: (
             <H1Custom >
               <ButtonBasic
-                onClick={() => router.push('/Contact')}
+                onClick={() => router.push('/contact')}
                 className={styles['btn-item-menu']}
               >
                 {messages.header.contact}
@@ -130,7 +130,7 @@ const NavDesktop = () => {
             label: (
               <H1Custom >
                 <ButtonBasic
-                  onClick={() => router.push('/MyCart')}
+                  onClick={() => router.push('/myCart')}
                   className={styles['btn-item-menu']}
                 >
                   <IconNumberCart>2</IconNumberCart>

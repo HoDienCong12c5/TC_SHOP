@@ -1,17 +1,14 @@
 import ItemNFT from '@/Components/ItemNFT';
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Media from 'react-media';
 import Loading from '@/Components/MyLoading'
-import { ContainerHome, ContainerListNFTHome, ContentHome, ItemMenu, LeftHome, RightHome } from './styled';
+import { ContainerHome, ContainerListNFTHome } from './styled';
 import SEO from '@/pages/Container/Header/seo';
 import useGetAllNFT from '@/Hook/useGetAllNFT';
 import BannerHome from './Component/Banner';
 import InfoHome from './Component/Info';
-import { Col, Row } from 'antd'
-import { MediumText, TitleText } from '@/Components/TextSize';
 import { useSelector } from 'react-redux';
-import ItemCard from './Component/ItemCart';
 import ListProduct from '../Container/Header/ListProduct';
 // import jwt_decode from 'jwt-decode';
 var jwt = require('jsonwebtoken');

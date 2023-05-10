@@ -1,6 +1,12 @@
 .hover {
   cursor: pointer;
-  &__zoom {
+  &__text-underline{
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  &_
+  _zoom {
     &:hover {
       transform: scale(1.03);
       -webkit-transform: scale(1.03);
@@ -311,4 +317,12 @@ input#ratio {
   text-overflow: ellipsis;
  }
 
+}
+.ant-menu-item-selected{
+  color: green !important;
+  background-color: transparent !important;
+  &:hover{
+    background-color: transparent !important;
+    background: transparent !important;
+  }
 }
