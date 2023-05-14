@@ -35,6 +35,7 @@ export const RightMyProfile = styled.div`
   width: 100%;
   margin-left: 15px;
   border-radius: ${borderradius}px;
+  align-self: stretch;
   padding: 15px;
   box-shadow: rgb(99 99 99 / 20%) 0px 2px 8px 0px;
 `;

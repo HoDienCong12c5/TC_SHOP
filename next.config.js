@@ -1,9 +1,6 @@
 
 /** @type {import('next').NextConfig} */
-const withFonts = require('next-fonts')
-const withPlugins = require('next-compose-plugins')
-const optimizedImages = require('next-optimized-images')
-const withAntdLess = require('next-plugin-antd-less')
+
 const path = require('path');
 
 const nextConfig = {
@@ -22,10 +19,9 @@ const nextConfig = {
     ignoreDuringBuilds: true
   },
   experimental: {
-    swcTraceProfiling: true,
-    // forceSwcTransforms:true,
-    optimizeCss: true
-    // appDir: true
+    // swcTraceProfiling: true,
+    optimizeCss: true,
+    appDir: true
   },
   reactStrictMode: true,
   swcMinify: true,
@@ -35,14 +31,14 @@ const nextConfig = {
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],
   },
-  // async rewrites() {
-  //   return [
-  //     {
-  //       source: '/',
-  //       destination: '/Home'
-  //     }
-  //   ]
-  // },
+  async rewrites() {
+    return [
+      {
+        source: '/',
+        destination: '/Home'
+      }
+    ]
+  },
   images: {
     // domains: ['https://skywalker.infura-ipfs.io']
     remotePatterns: [
@@ -54,11 +50,4 @@ const nextConfig = {
     ],
   },
 }
-// module.exports = withPlugins([
-//   [optimizedImages, {
-//     handleImages: ['jpeg', 'png', 'gif', 'svg', 'ico']
-//   }],
-//   withAntdLess({modifyVars:{}}),
-//   withFonts
-// ], nextConfig)
 module.exports = nextConfig
