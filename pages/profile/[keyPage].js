@@ -1,7 +1,6 @@
 import { ICON_PAGE_PROFILE, PAGE_PROFILE } from '@/common/constant';
 import { useRouter } from 'next/router';
 import React, { useEffect, useMemo } from 'react'
-import UserDetail from './userDetail';
 import { ButtonMenu, ContainerMyProfile } from './styled';
 import { LeftMyProfile } from './styled';
 import { RightMyProfile } from './styled';
@@ -9,17 +8,23 @@ import ImageNext from '@/Components/ImageNext';
 import { Menu } from 'antd';
 import styles from './MintNFT.module.scss'
 import { useState } from 'react';
+import dynamic from 'next/dynamic';
+// import UserDetail from './userDetail';
+const UserDetail = dynamic(()=>import('./userDetail'))
+
 const MyProfile = ({keyPage}) => {
   const router = useRouter();
   const [pageSelected, setPageSelected] = useState(keyPage)
   useEffect(() => {
     if(!Object.values(PAGE_PROFILE).includes(keyPage)){
       router.push('/')
-    }else{
-      router.push(`/profile/${pageSelected}`)
     }
   }, [router,pageSelected]);
-
+  useEffect(() => {
+    if(!Object.values(PAGE_PROFILE).includes(keyPage)){
+      router.push(`/profile/${pageSelected}`)
+    }
+  }, [pageSelected]);
   const page = useMemo(() => {
     switch (pageSelected) {
     case PAGE_PROFILE.myProfile:

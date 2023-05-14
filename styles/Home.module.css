@@ -286,3 +286,6 @@
 .ant-dropdown-menu{
   padding:0px !important;
 }
+.ant-drawer-body{
+  padding: 0px !important;
+}

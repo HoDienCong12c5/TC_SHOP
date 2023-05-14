@@ -42,6 +42,7 @@ const CoffeeDetail = ({name}) => {
 
   const buyCoffee = () => {
     let styleModal = modalConfig
+    styleModal.clickOverClose = false
     showModal({
       body:<ModalBuyCoffee
         coffee={coffeeDetail}
@@ -157,7 +158,7 @@ const CoffeeDetail = ({name}) => {
     )
   }
   const renderMobile = () => {
-    return <div className='col-basic gap-10'>
+    return <div className='col-basic gap-10 w-full'>
       <ImgCoffeeDetail
         src={'https://skywalker.infura-ipfs.io/ipfs/QmUirr7dsqyZgA5bDx4TqumJKCkiDtWdLHmGmaiZ5uEr15'}
         alt={stingToArr(name)}
@@ -165,7 +166,7 @@ const CoffeeDetail = ({name}) => {
       <MediumText fontWeight='bold' >
         {coffeeDetail.name}
       </MediumText>
-      <div className='col-basic col-basic_start gap-10 w-full'>
+      <div className='col-basic col-basic_start gap-10 w-full mt-20'>
         <Row className='w-full' justify={'space-between'}>
           <Col span={14}>
             <MediumText className='text-start'>

@@ -8,8 +8,18 @@ export const ContainerHeader = styled.div`
     height: 50px;
     margin: auto;
     border-bottom: 1px solid white;
+    @media screen and (max-width: 768px) {
+      padding: 0 20px;
+    }
 `;
 export const ItemHeader = styled.div`
+
+`
+export const MenuMobile = styled.div`
+display: flex;
+height: 50px;
+justify-content: space-between;
+align-items: center;
 
 `
 export default () => { };

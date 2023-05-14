@@ -54,7 +54,7 @@ const HomeScreen = () => {
   const renderDesktop = () => {
     return (
       <>
-        <ListProduct title={message.home.titleCoffee}/>
+        <ListProduct key={'message.home.titleCoffee'} title={message.home.titleCoffee}/>
         <ListProduct title={message.home.titlePod} typeProduct={'pod'}/>
 
       </>
@@ -67,7 +67,7 @@ const HomeScreen = () => {
           listAllNFT?.length > 0 ? (
             listAllNFT.map((item) => {
               return (
-                <ItemNFT key={item}
+                <ItemNFT key={item + 'listAllNFT'}
                   nft={item}
                   onClick={() => {
                     router.push(`/nft-detail/${item?.hash}`)

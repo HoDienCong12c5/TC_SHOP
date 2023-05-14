@@ -3,7 +3,7 @@ import ButtonBasic from '@/Components/ButtonBasic'
 import { useWorkModal } from '@/Hook/useModal'
 import userUserInfo from '@/Hook/useUserInfor'
 import ReduxService from '@/Utils/ReduxService'
-import { DownOutlined } from '@ant-design/icons'
+import { DownOutlined, MenuFoldOutlined } from '@ant-design/icons'
 import { Col, Dropdown, Row, Space } from 'antd'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -14,15 +14,20 @@ import { useSelector } from 'react-redux'
 import ModalLogin from './component/ModalLogin'
 import NavDesktop from './component/NavDesktop'
 import styles from './Header.module.scss'
-import { ContainerHeader } from './styled'
+import { ContainerHeader, MenuMobile } from './styled'
 import ImageNext from '@/Components/ImageNext'
 import { images } from '@/common/images'
+import { useState } from 'react'
+import DrawerMobile from './component/DrawerMobile'
 
 const Header = () => {
   const router = useRouter()
   const {isSigned,name} = userUserInfo()
   const {showModal} = useWorkModal()
   const message = useSelector(state => state.locale.messages)
+
+  const [showMenuMobile, setShowMenuMobile] = useState(false)
+
   useEffect(() => {
     if(!isSigned){
       if(PAGE_SIGN.includes(router.asPath)){
@@ -116,7 +121,33 @@ const Header = () => {
     )
   }
   const renderMobile = () => {
-    return (<></>)
+    return (
+      <MenuMobile>
+        <Link href={'/'}>
+          <Image
+            src={'https://skywalker.infura-ipfs.io/ipfs/QmfSbEq4qrQn53YydFj59Saiz9issKWFuxEJS4hDTCnNzh'}
+            width={50}
+            height={50}
+            alt="TC Shop"
+          />
+        </Link>
+        <div>
+          {
+            isSigned && <ButtonBasic className={styles['bnt-login']} style={{ background: 'white', borderRadius: 0, border: '1px solid; black' }}>
+              <ImageNext className={'h-25 w-25 mr-5'} src={images.icon.avatarDefault}/>
+              <Space>
+                {name}
+              </Space>
+            </ButtonBasic>
+          }
+          <MenuFoldOutlined style={{fontSize:20}} onClick={()=>setShowMenuMobile(true)}/>
+
+        </div>
+        {
+          showMenuMobile && <DrawerMobile value={showMenuMobile} callBack={()=>setShowMenuMobile(false)} />
+        }
+      </MenuMobile>
+    )
   }
   return (
     <ContainerHeader>

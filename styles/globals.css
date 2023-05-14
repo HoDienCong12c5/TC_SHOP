@@ -152,4 +152,6 @@ a {
   background-color: rgba(0, 0, 0, 0.08) !important;
   color:green !important;
 }
-
+.ant-drawer-body{
+  padding: 0px !important;
+}

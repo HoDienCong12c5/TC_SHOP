@@ -1,6 +1,6 @@
 import styles from '@/styles/Home.module.css'
 // import { Inter } from 'next/font/google'
-import HomeScreen from '@/pages/home'
+import HomeScreen from '@/pages/Home'
 import Head from 'next/head'
 // const inter = Inter( { subsets: ['latin'] } )
 

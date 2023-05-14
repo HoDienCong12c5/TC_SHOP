@@ -22,7 +22,7 @@ const CoffeeShop = () => {
             {
               listAllNFT.data.map(coffee=>(
                 <Item
-                  onClick={()=>router.push(`/coffeeShop/${coffee?.name}--${coffee?.id}`)}
+                  onClick={()=>router.push(`/CoffeeShop/${coffee?.name}--${coffee?.id}`)}
                   key={coffee}
                   item={coffee}
                 />

@@ -41,7 +41,7 @@ const NavDesktop = () => {
           label: (
             <H1Custom>
               <ButtonBasic
-                onClick={() => router.push('/coffeeShop')}
+                onClick={() => router.push('/CoffeeShop')}
                 className={styles['btn-item-menu']}
               >
                 {messages.header.coffee}
@@ -83,7 +83,7 @@ const NavDesktop = () => {
           label: (
             <H1Custom >
               <ButtonBasic
-                onClick={() => router.push('/contact')}
+                onClick={() => router.push('/Contact')}
                 className={styles['btn-item-menu']}
               >
                 {messages.header.contact}
@@ -130,7 +130,7 @@ const NavDesktop = () => {
             label: (
               <H1Custom >
                 <ButtonBasic
-                  onClick={() => router.push('/myCart')}
+                  onClick={() => router.push('/MyCart')}
                   className={styles['btn-item-menu']}
                 >
                   <IconNumberCart>2</IconNumberCart>
@@ -150,7 +150,7 @@ const NavDesktop = () => {
     initMenuNav();
   }, [isSigned]);
 
-  return <MyMenu mode="horizontal" items={listMenuNav} />;
+  return listMenuNav?.length > 0 && <MyMenu key={'listMenuNav'} mode="horizontal" items={listMenuNav} />
 };
 
 export default NavDesktop;

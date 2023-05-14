@@ -9,11 +9,12 @@ const ButtonBasic = ({
   disabled,
   loading = false,
   className = null,
+  textColor = 'black',
   ...props
 }) => {
   return (
     <Button
-      style={{position:'relative'}}
+      style={{position:'relative',color:textColor}}
       loading={loading}
       disabled={disabled}
       onClick={onClick}

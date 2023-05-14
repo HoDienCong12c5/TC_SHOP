@@ -1,6 +1,7 @@
 {
   "common":{
     "login":"Đăng nhập",
+    "logOut":"Đăng xuất",
     "close":"Thoát",
     "Send":"Gửi",
     "buy":"Mua",

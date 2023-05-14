@@ -6,7 +6,7 @@ import Web3 from 'web3';
 import Observer from '@/Utils/Observer'
 import { removeDataLocal } from '@/Utils/function';
 import { CHAIN_ID_SUPPORT, OBSERVER_KEY } from '@/common/constant';
-let onboarding
+let onboarding = null
 class Metamask {
   static async connect() {
     if (typeof window.ethereum !== 'undefined') {

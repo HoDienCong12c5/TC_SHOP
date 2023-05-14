@@ -15,7 +15,8 @@ position: relative;
     flex-flow: column wrap;
     gap:20px;
     margin-bottom:50px;
-    /* align-items: center; */
+    padding: 0 20px;
+
   }
 `
 
@@ -55,6 +56,8 @@ export const DesAbout = styled(MediumText)`
   gap: 5px;
   max-width: 500px;
   align-items: end;
+  white-space: break-spaces;
+  align-items: center;
   font-weight: 500;
   &:hover{
       transform: scale(1.05);

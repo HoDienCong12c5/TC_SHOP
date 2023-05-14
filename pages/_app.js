@@ -9,7 +9,6 @@ import '@/styles/styleBasic.scss';
 import ReduxService from '@/Utils/ReduxService';
 import { Suspense, useEffect } from 'react';
 import { Provider } from 'react-redux';
-import Container from './Container/index'
 import ReduxConnectIntl from '@/static/asset/lang'
 import {
   Hydrate,
@@ -20,17 +19,19 @@ import React from 'react';
 import ThemeSC from '@/Components/ThemsSC';
 import 'antd/dist/reset.css';
 import 'aos/dist/aos.css'
-import Web3Provider from './Container/Web3Provider';
-import { Inter } from 'next/font/google'
+import dynamic from 'next/dynamic';
+const Web3Provider = dynamic(()=>import('./Container/Web3Provider'))
+const Container = dynamic(()=>import('./Container/index'))
+// import { Inter } from 'next/font/google'
 
 // If loading a variable font, you don't need to specify the font weight
-const inter = Inter({ subsets: ['latin'] })
+// const inter = Inter({ subsets: ['latin'] })
 
 
 export default function App({ Component, pageProps }) {
   const [queryClient] = React.useState(() => new QueryClient())
   useEffect(() => {
-    ReduxService.setBnbBalance()
+    // ReduxService.setBnbBalance()
   }, []);
   useEffect(() => {
     const getDataLocal = async () => {
@@ -57,13 +58,17 @@ export default function App({ Component, pageProps }) {
       <QueryClientProvider client={queryClient}>
         <Hydrate state={pageProps.dehydratedState}>
           <Provider store={store} >
-            <Web3Provider>
-              <ReduxConnectIntl defaultLocale='en'>
-                <Container >
+            {/* <Web3Provider> */}
+            <ReduxConnectIntl defaultLocale='en'>
+              {
+                Component && <Container >
                   <Component {...pageProps} />
                 </Container>
-              </ReduxConnectIntl>
-            </Web3Provider>
+              }
+
+            </ReduxConnectIntl>
+
+            {/* </Web3Provider> */}
 
           </Provider>
         </Hydrate>

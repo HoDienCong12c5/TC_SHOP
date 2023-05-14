@@ -33,6 +33,9 @@ export const TitleCoffee = styled.h1`
 export const ButtonBuy = styled(ButtonBasic)`
   height: 50px;
   width: 100%;
+  @media screen and (max-width: 768px) {
+    height: 40px;
+  }
 `;
 export const ButtonEx = styled.div`
   height: 30px;

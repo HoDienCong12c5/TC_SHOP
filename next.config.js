@@ -23,7 +23,8 @@ const nextConfig = {
   },
   experimental: {
     swcTraceProfiling: true,
-    // optimizeCss: true
+    forceSwcTransforms:true,
+    optimizeCss: true
     // appDir: true
   },
   reactStrictMode: true,

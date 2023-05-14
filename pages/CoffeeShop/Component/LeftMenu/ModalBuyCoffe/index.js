@@ -69,10 +69,10 @@ const ModalBuyCoffe = ({
         {`${message.textPopular.nameProduct}: ${coffee?.name}`}
       </MediumText>
       <div className='flex' >
-        <MediumText fontWeight={500} color={BG_BTN.bgWarning}>
+        <MediumText fontWeight={500} color={'green'}>
           {`${message.textPopular.totalMoney}`}
         </MediumText>
-        <MediumText fontWeight={500} color={BG_BTN.bgWarning}>
+        <MediumText fontWeight={500} color={'green'}>
           {`:  ${number} * ${numberWithCommas(coffee?.price ?? 0)} = ${numberWithCommas((coffee?.price ?? 0) * number)} VND`}
         </MediumText>
       </div>
