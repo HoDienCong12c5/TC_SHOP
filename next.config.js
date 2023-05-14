@@ -23,7 +23,7 @@ const nextConfig = {
   },
   experimental: {
     swcTraceProfiling: true,
-    forceSwcTransforms:true,
+    // forceSwcTransforms:true,
     optimizeCss: true
     // appDir: true
   },
