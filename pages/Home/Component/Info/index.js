@@ -10,7 +10,7 @@ const InfoHome = () => {
     return <Row className='w-full'>
       <Col span={7} >
         <Row>
-          <IconInFo src={images.icon.iconResponsibility} />
+          <IconInFo alt='Tinh thần và trách nhiệm' src={images.icon.iconResponsibility} />
           <Col style={{width:'calc(100% - 55px )',padding:'0px 10px'}}>
             <MediumText fontWeight={'bold'} textTransform className='mb-5'>
               Tinh thần và trách nhiệm
@@ -23,7 +23,7 @@ const InfoHome = () => {
       </Col>
       <Col span={7} offset={1}>
         <Row>
-          <IconInFo src={images.icon.iconShield} />
+          <IconInFo alt='CAM KẾT CHẤT LƯỢNG' src={images.icon.iconShield} />
           <Col style={{width:'calc(100% - 55px )',padding:'0px 10px'}}>
             <MediumText fontWeight={'bold'} textTransform className='mb-5'>
             CAM KẾT CHẤT LƯỢNG
@@ -36,7 +36,7 @@ const InfoHome = () => {
       </Col>
       <Col span={7} offset={1}>
         <Row>
-          <IconInFo src={images.icon.iconSupport} />
+          <IconInFo alt='CHĂM SÓC KHÁCH HÀNG 24/7' src={images.icon.iconSupport} />
           <Col style={{width:'calc(100% - 55px )',padding:'0px 10px'}}>
             <MediumText fontWeight={'bold'} textTransform className='mb-5'>
             CHĂM SÓC KHÁCH HÀNG 24/7
