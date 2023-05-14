@@ -7,7 +7,8 @@
     "buy":"Mua",
     "submit":"Xác nhận",
     "buyNow":"Mua ngay",
-    "addCart":"Thêm vào giỏ hàng"
+    "addCart":"Thêm vào giỏ hàng",
+    "uploadImage":"Tải ảnh lên"
   },
   "register":{
     "title":"Đăng ký tài khoản",
@@ -31,7 +32,7 @@
     "freeShip_des":"Free ship in since 15km"
   },
   "mintNFT":{
-    "addNewImg":"Add new image",
+    "addNewImg":"Thêm ảnh mới",
     "mintNFT":"Mint NFT",
     "coursers":"Coursers",
     "student":"Student"
@@ -45,7 +46,9 @@
     "cart":"Giỏ hàng",
     "myProfile":"Trang cá nhân",
     "contact":"Liên hệ",
-    "about":"Thông tin"
+    "about":"Thông tin",
+    "name":"Tên",
+    "address":"Địa chỉ"
   },
   "footer":{
     "aboutContact":"Thông tin liên hệ"

@@ -155,3 +155,7 @@ a {
 .ant-drawer-body{
   padding: 0px !important;
 }
+.ant-upload-list-item-container{
+  height: 0px !important;
+  opacity: 0;
+}

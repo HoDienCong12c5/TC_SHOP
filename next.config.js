@@ -4,16 +4,16 @@
 const path = require('path');
 
 const nextConfig = {
-  webpack(config) {
-    // Fixes npm packages that depend on `fs` module
-    config.resolve.fallback = {
-      ...config.resolve.fallback,
-      fs: false,
-      net: false,
-      tls: false
-    }
-    return config
-  },
+  // webpack(config) {
+  //   // Fixes npm packages that depend on `fs` module
+  //   config.resolve.fallback = {
+  //     ...config.resolve.fallback,
+  //     fs: false,
+  //     net: false,
+  //     tls: false
+  //   }
+  //   return config
+  // },
   cleanDistDir: true,
   eslint: {
     ignoreDuringBuilds: true
@@ -21,12 +21,15 @@ const nextConfig = {
   experimental: {
     // swcTraceProfiling: true,
     optimizeCss: true,
-    appDir: true
+    // appDir: true
   },
   reactStrictMode: true,
   swcMinify: true,
   compiler: {
-    styledComponents: true,
+    styledComponents: {
+      displayName: true,
+      ssr: false,
+    },
   },
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],

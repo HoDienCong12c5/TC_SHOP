@@ -1,13 +1,15 @@
 import useGetAllCoffee from '@/Hook/useGetAllCoffee'
 import { Row } from 'antd'
-import React, { useEffect } from 'react'
+import React from 'react'
 import Media from 'react-media'
 import { ContainerCoffeeShop } from './styled'
 import Loading from '@/Components/MyLoading'
 import Item from '@/Components/Item'
 import { useRouter } from 'next/router'
+import SEOCoffeeShop from './seo'
 
-const CoffeeShop = () => {
+const CoffeeShop = ({title}) => {
+  console.log({title});
   const router = useRouter()
 
   const {listAllNFT,loadingLitAllNFT} = useGetAllCoffee()
@@ -42,6 +44,7 @@ const CoffeeShop = () => {
 
   return (
     <div className='container-basic'>
+      <SEOCoffeeShop />
       <Media query='(min-width: 768px)'>
         {(match) => {
           if (match) {

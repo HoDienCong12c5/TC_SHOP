@@ -21,7 +21,7 @@ const MyProfile = ({keyPage}) => {
     }
   }, [router,pageSelected]);
   useEffect(() => {
-    if(!Object.values(PAGE_PROFILE).includes(keyPage)){
+    if(Object.values(PAGE_PROFILE).includes(keyPage)){
       router.push(`/profile/${pageSelected}`)
     }
   }, [pageSelected]);
