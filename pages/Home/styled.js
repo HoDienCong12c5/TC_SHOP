@@ -4,13 +4,8 @@ import styled from 'styled-components';
 
 export const ContainerHome = styled.div`
   width: 100%;
-  max-width: 1450px;
   justify-content: center;
-  padding: 0px 50px;
   margin: auto;
-  @media screen and (max-width: 768px){
-    padding: 0px 20px;
-  }
 `;
 
 export const ContentHome = styled.div`

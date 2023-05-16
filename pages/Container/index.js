@@ -1,11 +1,10 @@
 import { Affix, Col, Layout, Row } from 'antd';
 import Header from './Header';
-import SEO from './Header/seo';
 import '@/Services/FirebaseService';
 import dynamic from 'next/dynamic'
 const MyModal = dynamic(()=>import('@/Components/MyModal'))
 import Footer from './Footer';
-import { useMemo,memo } from 'react';
+import { useMemo } from 'react';
 import { PAGE_NO_HEADER_FOOTER } from '@/common/constant';
 import { useRouter } from 'next/router';
 const { Content } = Layout

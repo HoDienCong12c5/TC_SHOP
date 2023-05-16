@@ -6,8 +6,7 @@ import store from '@/Redux/Store/configureStore';
 import '@/styles/globals.css';
 import '@/styles/helper.scss';
 import '@/styles/styleBasic.scss';
-import ReduxService from '@/Utils/ReduxService';
-import { Suspense, useEffect } from 'react';
+import { useEffect } from 'react';
 import { Provider } from 'react-redux';
 import ReduxConnectIntl from '@/static/asset/lang'
 import {

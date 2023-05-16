@@ -2,28 +2,13 @@ import ButtonBasic from '@/Components/ButtonBasic';
 import MyInput from '@/Components/MyInput';
 import ReduxService from '@/Utils/ReduxService';
 import { Checkbox, Col, Form, Row } from 'antd';
-import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
-import Observer from '@/Utils/Observer'
-import { OBSERVER_KEY } from '@/common/constant';
 import { useWorkModal } from '@/Hook/useModal';
 import userUserInfo from '@/Hook/useUserInfor';
 import { showNotification } from '@/Utils/function';
 
-const ContainerLogin = styled.div`
-  width: 100%;
-  height:calc(100vh - 60px);
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-    align-self: end;
-    align-content: center;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-`;
 const ContentLogin = styled.div`
   display: flex;
   flex-direction: column;
@@ -38,7 +23,6 @@ const InputForm = styled(MyInput)`
 height: 30px;
 `
 const ModalLogin = () => {
-  const route = useRouter()
   const [form] = Form.useForm()
   const {hideModal} = useWorkModal()
   const {isSigned} = userUserInfo()
@@ -71,6 +55,7 @@ const ModalLogin = () => {
       hideModal()
       showNotification('user name hoặc password chưa đúng')
     }
+    setLoadingLogin(false)
   }
   const onRememberLogin = () => {
     setSaveLogin(!saveLogin)

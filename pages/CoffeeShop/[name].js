@@ -227,7 +227,7 @@ const CoffeeDetail = ({name}) => {
     </div>
   }
   return (
-    <div className='container-basic'>
+    <div >
       <BtnBack main={'Coffee shop'} pageNow={stingToArr(name)}/>
       {
         coffeeDetail ? (

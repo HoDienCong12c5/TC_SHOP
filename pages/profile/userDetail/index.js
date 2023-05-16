@@ -39,26 +39,29 @@ const UserDetail = () => {
   const renderDesktop = () => {
     return <Row>
       <Col span={8}>
-        <AvatarContainer >
-          <Avatar
-            sizes={200}
-            alt={userInfo.name}
-            src={userInfo.avatar ?? images.icon.avatarDefault}
-          />
+        <div style={{textAlign:'center'}}>
+          <AvatarContainer >
+            <Avatar
+              sizes={200}
+              alt={userInfo.name}
+              src={userInfo.avatar ?? images.icon.avatarDefault}
+            />
 
-        </AvatarContainer>
-        <Upload showUploadList={false} onChange={opLoadAvatar}>
-          <Button
-            className='mt-20 mb-10'
-            icon={<UploadOutlined />}
-          >
-            {message.common.uploadImage}
-          </Button>
-        </Upload>
-        <NormalText >
+          </AvatarContainer>
+          <Upload showUploadList={false} onChange={opLoadAvatar}>
+            <Button
+              className='mt-20 mb-10 m-auto'
+              icon={<UploadOutlined />}
+            >
+              {message.common.uploadImage}
+            </Button>
+          </Upload>
+          <NormalText >
         Dụng lượng file tối đa 1 MB
           Định dạng:.JPEG, .PNG
-        </NormalText>
+          </NormalText>
+        </div>
+
       </Col>
       <Col span={16}>
         <ItemInfo name={'SDT'} value={userInfo.numberPhone}/>

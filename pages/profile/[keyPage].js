@@ -55,7 +55,7 @@ const MyProfile = ({keyPage}) => {
     </LeftMyProfile>
   }
   return (
-    <ContainerMyProfile className='container-basic'>
+    <ContainerMyProfile>
       {renderMenu()}
       <RightMyProfile >
         {

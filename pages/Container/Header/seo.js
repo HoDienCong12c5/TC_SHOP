@@ -36,9 +36,9 @@ const SEO = () => {
         <meta name="description" content={process.env.NEXT_PUBLIC_TITLE}/>
 
 
-        <meta itemprop="name" content={process.env.NEXT_PUBLIC_TITLE}/>
-        <meta itemprop="description" content={process.env.NEXT_PUBLIC_TITLE_DES}/>
-        <meta itemprop="image" content="https://skywalker.infura-ipfs.io/ipfs/QmfSbEq4qrQn53YydFj59Saiz9issKWFuxEJS4hDTCnNzh"/>
+        <meta itemProp="name" content={process.env.NEXT_PUBLIC_TITLE}/>
+        <meta itemProp="description" content={process.env.NEXT_PUBLIC_TITLE_DES}/>
+        <meta itemProp="image" content="https://skywalker.infura-ipfs.io/ipfs/QmfSbEq4qrQn53YydFj59Saiz9issKWFuxEJS4hDTCnNzh"/>
 
         <meta property="og:url" content="http://dev-star-token-client.w3w.app"/>
         <meta property="og:type" content="website"/>

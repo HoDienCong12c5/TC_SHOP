@@ -43,7 +43,7 @@ const CoffeeShop = ({title}) => {
   }
 
   return (
-    <div className='container-basic'>
+    <>
       <SEOCoffeeShop />
       <Media query='(min-width: 768px)'>
         {(match) => {
@@ -54,7 +54,7 @@ const CoffeeShop = ({title}) => {
         }}
 
       </Media>
-    </div>
+    </>
 
   )
 }
