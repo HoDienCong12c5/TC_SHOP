@@ -2,23 +2,54 @@ import userUserInfo from '@/Hook/useUserInfor'
 import React from 'react'
 import { Avatar, AvatarContainer, UserDetailContainer } from './styled'
 import Media from 'react-media'
-import { Button, Col, Row, Upload } from 'antd'
+import { Button, Col, Form, Row, Upload } from 'antd'
 import { images } from '@/common/images'
 import { UploadOutlined } from '@ant-design/icons'
 import { NormalText } from '@/Components/TextSize'
 import { useSelector } from 'react-redux'
+import { useState } from 'react'
+import MyInput from '@/Components/MyInput'
+import DataTime from '@/Components/DataTime'
 
-const ItemInfo = ({name,value}) => {
-  return <Row key={name + value}>
-    <Col span={8}>
-      <NormalText>
+const ItemInfo = ({name,value,callBack}) => {
+  const [isEdit, setIsEdit] = useState(false)
+  const [valueText, setValueText] = useState(value)
+  const message = useSelector(state => state.locale.messages)
+  const onChangeText = (e) => {
+    setValueText(e.target.value)
+  }
+  const onClick = () => {
+    if(isEdit){
+      callBack && callBack(value)
+      setIsEdit(!isEdit)
+    }else{
+      setIsEdit(!isEdit)
+    }
+  }
+  return <div key={name + value} className='flex mb-15 h-30' >
+    <div >
+      <NormalText className='mr-10'>
         {name}  :
       </NormalText>
-    </Col>
-    <Col span={16}>
-      {value}
-    </Col>
-  </Row>
+    </div>
+    <div >
+      {
+        isEdit ? (
+          <MyInput value={valueText} onChange={onChangeText}/>
+        ) : (
+          <NormalText className='text-start'>
+            {valueText}
+          </NormalText>
+        )
+      }
+    </div>
+    <NormalText
+      onClick={onClick}
+      className='hover ml-5 text-underline'
+      color='blue'>
+      {isEdit ? 'Lưu' : message.common.edit}
+    </NormalText>
+  </div>
 }
 const UserDetail = () => {
   const userInfo = userUserInfo()
@@ -64,12 +95,13 @@ const UserDetail = () => {
 
       </Col>
       <Col span={16}>
-        <ItemInfo name={'SDT'} value={userInfo.numberPhone}/>
-        <ItemInfo name={'SDT'} value={userInfo.numberPhone}/>
-        <ItemInfo name={'SDT'} value={userInfo.numberPhone}/>
-        <ItemInfo name={'SDT'} value={userInfo.numberPhone}/>
-        <ItemInfo name={'SDT'} value={userInfo.numberPhone}/>
+        <Form >
 
+        </Form>
+        <ItemInfo name={message.textPopular.nameProduct} value={userInfo.name}/>
+        <ItemInfo name={message.userDetail.sdt} value={userInfo.numberPhone}/>
+        <ItemInfo name={message.userDetail.addressNow} value={userInfo.numberPhone}/>
+        <DataTime />
       </Col>
     </Row>
   }

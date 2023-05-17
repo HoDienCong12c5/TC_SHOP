@@ -8,7 +8,12 @@
     "submit":"Xác nhận",
     "buyNow":"Mua ngay",
     "addCart":"Thêm vào giỏ hàng",
-    "uploadImage":"Tải ảnh lên"
+    "uploadImage":"Tải ảnh lên",
+    "edit":"Chỉnh sửa"
+  },
+  "userDetail":{
+    "addressNow":"Địa chỉ hiện tại",
+    "sdt":"Số điện thoại"
   },
   "register":{
     "title":"Đăng ký tài khoản",

@@ -174,4 +174,7 @@ export const numberWithCommas = (x) => {
   if (parts.join('.') === '00') return 0
   return parts.join('.')
 }
+export const formatDateTime = (value, format = 'YYYY-MM-DD') => {
+  return moment(value).format(format)
+}
 export default () => { }
